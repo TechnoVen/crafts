@@ -1,0 +1,110 @@
+/* 
+ * CRAFTS CSS Smart Reset
+ * Modern reset that preserves semantic meaning while ensuring proper container behavior
+ */
+
+/* Box sizing reset with inheritance */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding from all elements */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* HTML and body reset to ensure no edge-to-edge issues */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Body defaults with proper container behavior */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: var(--crafts-line-height);
+  font-family: var(--crafts-font-family);
+  background-color: var(--crafts-bg-primary);
+  color: var(--crafts-text-primary);
+  /* Ensure body acts as proper container */
+  display: flex;
+  flex-direction: column;
+}
+
+/* HTML focus outline preservation */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Remove list styles on ul, ol elements */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Anchor elements */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Button reset */
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Form element reset */
+input,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  background: none;
+}
+
+/* Media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

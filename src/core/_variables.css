@@ -1,0 +1,160 @@
+/* CRAFTS CSS Design Tokens */
+:root {
+  /* === SPACING SCALE === */
+  --crafts-space-unit: 1rem;
+  --crafts-space-xs: calc(var(--crafts-space-unit) / 4);
+  --crafts-space-sm: calc(var(--crafts-space-unit) / 2);
+  --crafts-space-md: var(--crafts-space-unit);
+  --crafts-space-lg: calc(var(--crafts-space-unit) * 1.5);
+  --crafts-space-xl: calc(var(--crafts-space-unit) * 2);
+  --crafts-space-2xl: calc(var(--crafts-space-unit) * 3);
+
+  /* === COLOR SYSTEM === */
+  /* Primary Colors */
+  --crafts-primary-h: 220;
+  --crafts-primary-s: 100%;
+  --crafts-primary-l: 50%;
+  --crafts-primary: hsl(
+    var(--crafts-primary-h),
+    var(--crafts-primary-s),
+    var(--crafts-primary-l)
+  );
+
+  /* Neutral Colors */
+  --crafts-white: hsl(0, 0%, 100%);
+  --crafts-gray-50: hsl(0, 0%, 98%);
+  --crafts-gray-100: hsl(0, 0%, 96%);
+  --crafts-gray-200: hsl(0, 0%, 90%);
+  --crafts-gray-300: hsl(0, 0%, 80%);
+  --crafts-gray-400: hsl(0, 0%, 60%);
+  --crafts-gray-500: hsl(0, 0%, 50%);
+  --crafts-gray-600: hsl(0, 0%, 40%);
+  --crafts-gray-700: hsl(0, 0%, 30%);
+  --crafts-gray-800: hsl(0, 0%, 20%);
+  --crafts-gray-900: hsl(0, 0%, 10%);
+  --crafts-black: hsl(0, 0%, 0%);
+
+  /* Semantic Colors */
+  --crafts-bg-primary: var(--crafts-white);
+  --crafts-bg-secondary: var(--crafts-gray-50);
+  --crafts-text-primary: var(--crafts-gray-900);
+  --crafts-text-secondary: var(--crafts-gray-600);
+  --crafts-border-color: var(--crafts-gray-200);
+
+  /* Status Colors */
+  --crafts-success: hsl(142, 76%, 36%);
+  --crafts-warning: hsl(38, 92%, 50%);
+  --crafts-error: hsl(0, 84%, 60%);
+  --crafts-info: hsl(221, 83%, 53%);
+
+  /* === TYPOGRAPHY === */
+  /* Font Families */
+  --crafts-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+
+  --crafts-font-mono: "SFMono-Regular", "Menlo", "Monaco", "Consolas",
+    "Liberation Mono", "Courier New", monospace;
+
+  --crafts-font-serif: "Charter", "Bitstream Charter", "Sitka Text", Cambria,
+    serif;
+
+  /* Font Weights */
+  --crafts-font-weight-normal: 400;
+  --crafts-font-weight-medium: 500;
+  --crafts-font-weight-semibold: 600;
+  --crafts-font-weight-bold: 700;
+
+  /* Line Heights */
+  --crafts-line-height-tight: 1.25;
+  --crafts-line-height-normal: 1.5;
+  --crafts-line-height-relaxed: 1.75;
+
+  /* Font Sizes */
+  --crafts-text-xs: 0.75rem;
+  --crafts-text-sm: 0.875rem;
+  --crafts-text-base: 1rem;
+  --crafts-text-lg: 1.125rem;
+  --crafts-text-xl: 1.25rem;
+  --crafts-text-2xl: 1.5rem;
+  --crafts-text-3xl: 1.875rem;
+  --crafts-text-4xl: 2.25rem;
+
+  /* === BORDER RADIUS === */
+  --crafts-radius-sm: 0.25rem;
+  --crafts-radius-md: 0.375rem;
+  --crafts-radius-lg: 0.5rem;
+  --crafts-radius-xl: 0.75rem;
+  --crafts-radius-2xl: 1rem;
+
+  /* === SHADOWS === */
+  --crafts-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --crafts-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --crafts-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --crafts-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  /* === COMPLEXITY LEVELS === */
+  --crafts-complexity: simple; /* simple | balanced | complex */
+}
+
+/* Dark Mode Variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --crafts-bg-primary: hsl(0, 0%, 8%);
+    --crafts-bg-secondary: hsl(0, 0%, 12%);
+    --crafts-text-primary: hsl(0, 0%, 95%);
+    --crafts-text-secondary: hsl(0, 0%, 70%);
+    --crafts-border-color: hsl(0, 0%, 20%);
+
+    --crafts-success: hsl(142, 76%, 46%);
+    --crafts-warning: hsl(38, 92%, 60%);
+    --crafts-error: hsl(0, 84%, 70%);
+    --crafts-info: hsl(221, 83%, 63%);
+  }
+}
+
+/* Beautiful theme system */
+[data-theme="light"] {
+  --crafts-bg-primary: hsl(0, 0%, 100%);
+  --crafts-bg-secondary: hsl(0, 0%, 98%);
+  --crafts-text-primary: hsl(0, 0%, 10%);
+  --crafts-text-secondary: hsl(0, 0%, 40%);
+  --crafts-border-color: hsl(0, 0%, 85%);
+  --crafts-shadow-color: 0, 0%, 0%;
+}
+
+[data-theme="dark"] {
+  --crafts-bg-primary: hsl(0, 0%, 8%);
+  --crafts-bg-secondary: hsl(0, 0%, 12%);
+  --crafts-text-primary: hsl(0, 0%, 98%);
+  --crafts-text-secondary: hsl(0, 0%, 70%);
+  --crafts-border-color: hsl(0, 0%, 20%);
+  --crafts-shadow-color: 0, 0%, 100%;
+}
+
+/* Auto theme uses system preference */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --crafts-bg-primary: hsl(0, 0%, 8%);
+    --crafts-bg-secondary: hsl(0, 0%, 12%);
+    --crafts-text-primary: hsl(0, 0%, 98%);
+    --crafts-text-secondary: hsl(0, 0%, 70%);
+    --crafts-border-color: hsl(0, 0%, 20%);
+    --crafts-shadow-color: 0, 0%, 100%;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --crafts-border-color: var(--crafts-black);
+    --crafts-shadow-sm: 0 0 0 1px var(--crafts-black);
+    --crafts-shadow-md: 0 0 0 2px var(--crafts-black);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --crafts-transition-duration: 0.01ms;
+  }
+}

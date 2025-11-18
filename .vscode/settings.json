@@ -1,0 +1,10 @@
+{
+    "css.validate": true,
+    "less.validate": false,
+    "scss.validate": false,
+    "editor.formatOnSave": true,
+    "files.associations": 
+    {
+    "*.css": "css"
+    }
+}

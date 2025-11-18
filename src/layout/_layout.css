@@ -1,0 +1,223 @@
+/*
+ * CRAFTS Layout System
+ * Proper container system that prevents edge-to-edge content
+ * Consistent spacing and responsive breakpoints
+ */
+
+/* 
+ * Base container system - prevents edge-to-edge content
+ * Uses max-width constraints with safe area padding
+ */
+.crafts-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--crafts-space-md);
+  box-sizing: border-box;
+}
+
+/* Container variants for different content needs */
+.crafts-container-sm {
+  max-width: 800px;
+  padding: 0 var(--crafts-space-md);
+}
+
+.crafts-container-md {
+  max-width: 1200px;
+  padding: 0 var(--crafts-space-md);
+}
+
+.crafts-container-lg {
+  max-width: 1400px;
+  padding: 0 var(--crafts-space-md);
+}
+
+.crafts-container-xl {
+  max-width: 1600px;
+  padding: 0 var(--crafts-space-md);
+}
+
+/* Fluid container for full-width sections */
+.crafts-container-fluid {
+  max-width: none;
+  padding: 0 var(--crafts-space-md);
+}
+
+/* 
+ * Page wrapper system 
+ * Ensures proper full-height layout without edge issues
+ */
+.crafts-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.crafts-page main {
+  flex: 1;
+  width: 100%;
+}
+
+/* 
+ * Section system with proper container inheritance
+ * Ensures sections don't stretch edge-to-edge
+ */
+.crafts-section {
+  width: 100%;
+  padding: var(--crafts-space-xl) 0;
+}
+
+.crafts-section .crafts-container {
+  width: 100%;
+}
+
+.crafts-section-sm {
+  padding: var(--crafts-space-lg) 0;
+}
+
+.crafts-section-lg {
+  padding: var(--crafts-space-2xl) 0;
+}
+
+.crafts-section-xl {
+  padding: calc(var(--crafts-space-2xl) * 1.5) 0;
+}
+
+/* Full-width sections with internal containers */
+.crafts-section-full {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: var(--crafts-space-xl) 0;
+}
+
+.crafts-section-full .crafts-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--crafts-space-md);
+}
+
+/* Grid layouts with proper container behavior */
+.crafts-grid {
+  display: grid;
+  gap: var(--crafts-space-lg);
+  width: 100%;
+}
+
+.crafts-grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.crafts-grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.crafts-grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Sidebar layout with container constraints */
+.crafts-with-sidebar {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--crafts-space-xl);
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--crafts-space-md);
+  box-sizing: border-box;
+}
+
+.crafts-sidebar {
+  background: var(--crafts-bg-secondary);
+  border-right: 1px solid var(--crafts-border-color);
+  padding: var(--crafts-space-lg);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* 
+ * Responsive breakpoints 
+ * Maintain container behavior across all screen sizes
+ */
+@media (max-width: 1024px) {
+  .crafts-with-sidebar {
+    grid-template-columns: 240px 1fr;
+    max-width: 100%;
+    padding: 0 var(--crafts-space-sm);
+  }
+}
+
+@media (max-width: 768px) {
+  .crafts-container,
+  .crafts-container-sm,
+  .crafts-container-md,
+  .crafts-container-lg,
+  .crafts-container-xl,
+  .crafts-container-fluid {
+    padding: 0 var(--crafts-space-sm);
+  }
+
+  .crafts-with-sidebar {
+    grid-template-columns: 1fr;
+    gap: var(--crafts-space-md);
+    padding: 0 var(--crafts-space-sm);
+  }
+
+  .crafts-sidebar {
+    position: static;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--crafts-border-color);
+  }
+
+  .crafts-section {
+    padding: var(--crafts-space-lg) 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .crafts-container,
+  .crafts-container-sm,
+  .crafts-container-md,
+  .crafts-container-lg,
+  .crafts-container-xl,
+  .crafts-container-fluid {
+    padding: 0 var(--crafts-space-sm);
+  }
+
+  .crafts-section {
+    padding: var(--crafts-space-lg) 0;
+  }
+
+  .crafts-section-sm {
+    padding: var(--crafts-space-md) 0;
+  }
+
+  .crafts-section-lg {
+    padding: var(--crafts-space-xl) 0;
+  }
+}
+
+/* Safe area support for modern devices */
+@supports (padding: max(0px)) {
+  .crafts-container,
+  .crafts-container-sm,
+  .crafts-container-md,
+  .crafts-container-lg,
+  .crafts-container-xl,
+  .crafts-container-fluid {
+    padding-left: max(var(--crafts-space-md), env(safe-area-inset-left));
+    padding-right: max(var(--crafts-space-md), env(safe-area-inset-right));
+  }
+}

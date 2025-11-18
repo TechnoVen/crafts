@@ -1,0 +1,71 @@
+/*
+ * CRAFTS Theme Switcher Component
+ * Clear, accessible theme switching with labels and better visual design
+ */
+
+.crafts-theme-switcher {
+  display: inline-flex;
+  background: var(--crafts-bg-secondary);
+  border-radius: var(--crafts-radius-lg);
+  border: 1px solid var(--crafts-border-color);
+  padding: var(--crafts-space-xs);
+  gap: var(--crafts-space-xs);
+}
+
+.crafts-theme-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--crafts-space-xs);
+  padding: var(--crafts-space-sm) var(--crafts-space-md);
+  border: none;
+  border-radius: var(--crafts-radius-md);
+  background: transparent;
+  color: var(--crafts-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: var(--crafts-text-sm);
+  font-weight: var(--crafts-font-weight-medium);
+}
+
+.crafts-theme-btn:hover {
+  background: var(--crafts-bg-primary);
+  color: var(--crafts-text-primary);
+}
+
+.crafts-theme-btn.active {
+  background: var(--crafts-primary);
+  color: white;
+  box-shadow: var(--crafts-shadow-sm);
+}
+
+/* Compact version for tight spaces */
+.crafts-theme-switcher.compact .crafts-theme-btn {
+  padding: var(--crafts-space-xs);
+}
+
+.crafts-theme-switcher.compact .theme-label {
+  display: none;
+}
+
+/* Theme data attributes with better contrast */
+[data-theme="light"] {
+  --crafts-bg-primary: hsl(0, 0%, 100%);
+  --crafts-bg-secondary: hsl(0, 0%, 98%);
+  --crafts-text-primary: hsl(0, 0%, 10%);
+  --crafts-text-secondary: hsl(0, 0%, 40%);
+  --crafts-border-color: hsl(0, 0%, 85%);
+  --crafts-shadow-color: 0, 0%, 0%;
+}
+
+[data-theme="dark"] {
+  --crafts-bg-primary: hsl(0, 0%, 8%);
+  --crafts-bg-secondary: hsl(0, 0%, 12%);
+  --crafts-text-primary: hsl(0, 0%, 98%);
+  --crafts-text-secondary: hsl(0, 0%, 70%);
+  --crafts-border-color: hsl(0, 0%, 20%);
+  --crafts-shadow-color: 0, 0%, 100%;
+}
+
+[data-theme="auto"] {
+  /* Uses prefers-color-scheme media query */
+}

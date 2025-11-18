@@ -1,0 +1,98 @@
+/*
+ * CRAFTS Form Components
+ * Beautiful, accessible form elements inspired by modern design systems
+ * Consistent styling across all input types
+ */
+
+.crafts-form-group {
+  margin-bottom: var(--crafts-space-lg);
+}
+
+.crafts-form-label {
+  display: block;
+  margin-bottom: var(--crafts-space-xs);
+  font-weight: var(--crafts-font-weight-medium);
+  color: var(--crafts-text-primary);
+  font-size: var(--crafts-text-sm);
+}
+
+.crafts-form-input {
+  width: 100%;
+  padding: var(--crafts-space-md);
+  border: 1px solid var(--crafts-border-color);
+  border-radius: var(--crafts-radius-md);
+  background: var(--crafts-bg-primary);
+  color: var(--crafts-text-primary);
+  font-size: var(--crafts-text-base);
+  transition: all 0.2s ease;
+  line-height: 1.5;
+}
+
+.crafts-form-input:focus {
+  outline: none;
+  border-color: var(--crafts-primary);
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--crafts-primary) 20%, transparent);
+}
+
+.crafts-form-input::placeholder {
+  color: var(--crafts-text-secondary);
+  opacity: 0.7;
+}
+
+/* Specific input types */
+.crafts-form-input[type="email"],
+.crafts-form-input[type="password"],
+.crafts-form-input[type="tel"],
+.crafts-form-input[type="url"] {
+  /* Specific styles for different input types */
+}
+
+.crafts-form-textarea {
+  min-height: 100px;
+  resize: vertical;
+  font-family: var(--crafts-font-family);
+}
+
+.crafts-form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: var(--crafts-space-2xl);
+}
+
+/* Form validation states */
+.crafts-form-input:invalid {
+  border-color: var(--crafts-error);
+}
+
+.crafts-form-input:valid {
+  border-color: var(--crafts-success);
+}
+
+.crafts-form-help {
+  display: block;
+  margin-top: var(--crafts-space-xs);
+  font-size: var(--crafts-text-sm);
+  color: var(--crafts-text-secondary);
+}
+
+.crafts-form-error {
+  color: var(--crafts-error);
+  font-size: var(--crafts-text-sm);
+  margin-top: var(--crafts-space-xs);
+}
+
+/* Form layouts */
+.crafts-form-inline {
+  display: flex;
+  gap: var(--crafts-space-md);
+  align-items: end;
+}
+
+.crafts-form-inline .crafts-form-group {
+  flex: 1;
+  margin-bottom: 0;
+}

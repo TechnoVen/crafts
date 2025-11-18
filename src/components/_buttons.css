@@ -1,0 +1,118 @@
+/*
+ * CRAFTS Button System
+ * Comprehensive button styles with proper variants and states
+ * Consistent with modern design systems
+ */
+
+.crafts-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--crafts-space-sm);
+  padding: var(--crafts-space-md) var(--crafts-space-lg);
+  background: var(--crafts-primary);
+  color: white;
+  border: none;
+  border-radius: var(--crafts-radius-md);
+  font-weight: var(--crafts-font-weight-medium);
+  font-size: var(--crafts-text-base);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  line-height: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.crafts-btn:hover {
+  background: color-mix(in srgb, var(--crafts-primary) 85%, black);
+  transform: translateY(-1px);
+  box-shadow: var(--crafts-shadow-md);
+}
+
+.crafts-btn:active {
+  transform: translateY(0);
+}
+
+.crafts-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--crafts-primary) 30%, transparent);
+}
+
+/* Button variants */
+.crafts-btn-secondary {
+  background: var(--crafts-bg-secondary);
+  color: var(--crafts-text-primary);
+  border: 1px solid var(--crafts-border-color);
+}
+
+.crafts-btn-secondary:hover {
+  background: var(--crafts-bg-primary);
+  border-color: var(--crafts-primary);
+}
+
+.crafts-btn-ghost {
+  background: transparent;
+  color: var(--crafts-text-primary);
+  border: 1px solid transparent;
+}
+
+.crafts-btn-ghost:hover {
+  background: var(--crafts-bg-secondary);
+  border-color: var(--crafts-border-color);
+}
+
+.crafts-btn-outline {
+  background: transparent;
+  color: var(--crafts-primary);
+  border: 1px solid var(--crafts-primary);
+}
+
+.crafts-btn-outline:hover {
+  background: var(--crafts-primary);
+  color: white;
+}
+
+/* Button sizes */
+.crafts-btn-sm {
+  padding: var(--crafts-space-sm) var(--crafts-space-md);
+  font-size: var(--crafts-text-sm);
+}
+
+.crafts-btn-lg {
+  padding: var(--crafts-space-lg) var(--crafts-space-xl);
+  font-size: var(--crafts-text-lg);
+}
+
+.crafts-btn-xl {
+  padding: 1.25rem 2rem;
+  font-size: var(--crafts-text-lg);
+  font-weight: var(--crafts-font-weight-semibold);
+}
+
+/* Icon buttons */
+.crafts-btn-icon {
+  padding: var(--crafts-space-md);
+  border-radius: var(--crafts-radius-md);
+}
+
+.crafts-btn-icon.crafts-btn-sm {
+  padding: var(--crafts-space-sm);
+}
+
+.crafts-btn-icon.crafts-btn-lg {
+  padding: var(--crafts-space-lg);
+}
+
+/* Disabled state */
+.crafts-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.crafts-btn:disabled:hover {
+  background: var(--crafts-primary);
+  transform: none;
+  box-shadow: none;
+}

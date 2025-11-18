@@ -1,0 +1,36 @@
+{
+    "name": "crafts-css",
+    "version": "1.0.0",
+    "description": "A clean, responsive, accessible, flexible, typographic, and semantic CSS framework",
+    "main": "dist/crafts.css",
+    "files": [
+        "dist",
+        "src"
+    ],
+    "scripts": {
+        "build": "node build.js",
+        "dev": "live-server --watch=src,examples",
+        "minify": "csso dist/crafts.css --output dist/crafts.min.css"
+    },
+    "keywords": [
+        "css",
+        "framework",
+        "responsive",
+        "semantic"
+    ],
+    "author": "TechnoVen",
+    "license": "MIT",
+    "directories": {
+        "doc": "docs",
+        "example": "examples"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/TechnoVen/crafts.git"
+    },
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/TechnoVen/crafts/issues"
+    },
+    "homepage": "https://github.com/TechnoVen/crafts#readme"
+}

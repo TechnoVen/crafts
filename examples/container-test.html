@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRAFTS CSS - Container Test</title>
+    <link rel="stylesheet" href="../dist/crafts.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        .test-border {
+            border: 2px dashed var(--crafts-primary);
+        }
+
+        .bg-test {
+            background: color-mix(in srgb, var(--crafts-primary) 5%, transparent);
+        }
+    </style>
+</head>
+
+<body class="crafts-page">
+    <!-- Topbar with Container -->
+    <div class="crafts-topbar">
+        <div class="crafts-container crafts-topbar-content">
+            <div class="crafts-topbar-left">
+                <span>Container Test Page</span>
+            </div>
+            <div class="crafts-topbar-right">
+                <span>No edge-to-edge issues!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header with Container -->
+    <header class="crafts-header test-border">
+        <div class="crafts-container crafts-header-content">
+            <h1>Container Test</h1>
+            <p>This should NOT stretch edge-to-edge</p>
+        </div>
+    </header>
+
+    <!-- Main content with different container types -->
+    <main>
+        <!-- Default Container -->
+        <section class="crafts-section bg-test">
+            <div class="crafts-container test-border">
+                <h2>Default Container (1200px max-width)</h2>
+                <p>This container should be centered with padding on sides.</p>
+            </div>
+        </section>
+
+        <!-- Small Container -->
+        <section class="crafts-section">
+            <div class="crafts-container-sm test-border">
+                <h2>Small Container (800px max-width)</h2>
+                <p>Perfect for forms and focused content.</p>
+            </div>
+        </section>
+
+        <!-- Large Container -->
+        <section class="crafts-section bg-test">
+            <div class="crafts-container-lg test-border">
+                <h2>Large Container (1400px max-width)</h2>
+                <p>Great for wide layouts and dashboards.</p>
+            </div>
+        </section>
+
+        <!-- Fluid Container -->
+        <section class="crafts-section">
+            <div class="crafts-container-fluid test-border">
+                <h2>Fluid Container (no max-width)</h2>
+                <p>Full width but still with safe padding.</p>
+            </div>
+        </section>
+
+        <!-- Full-width Section with Internal Container -->
+        <section class="crafts-section-full bg-test">
+            <div class="crafts-container test-border">
+                <h2>Full-width Section</h2>
+                <p>Background goes edge-to-edge, but content is contained.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer with Container -->
+    <footer class="crafts-footer">
+        <div class="crafts-container">
+            <p>&copy; 2024 CRAFTS CSS - Container test successful!</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

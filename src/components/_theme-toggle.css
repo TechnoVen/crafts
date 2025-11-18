@@ -1,0 +1,256 @@
+/*
+ * CRAFTS Beautiful Theme Toggle
+ * Elegant toggle switch inspired by modern design systems
+ * Smooth animations, clear visual states, and perfect functionality
+ */
+
+.crafts-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--crafts-space-sm);
+  padding: var(--crafts-space-xs);
+  background: var(--crafts-bg-secondary);
+  border: 1px solid var(--crafts-border-color);
+  border-radius: var(--crafts-radius-xl);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  min-width: 64px;
+  height: 32px;
+}
+
+.crafts-theme-toggle:hover {
+  border-color: var(--crafts-primary);
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--crafts-primary) 15%, transparent);
+  transform: translateY(-1px);
+}
+
+.crafts-theme-toggle:active {
+  transform: translateY(0);
+}
+
+/* Compound controls container */
+.crafts-theme-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--crafts-space-md);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .crafts-theme-controls {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--crafts-space-sm);
+  }
+}
+
+/* Hide the actual checkbox */
+.crafts-theme-toggle input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* Toggle track */
+.crafts-theme-toggle-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--crafts-radius-lg);
+  background: linear-gradient(
+    135deg,
+    var(--crafts-primary) 0%,
+    color-mix(in srgb, var(--crafts-primary) 70%, var(--crafts-warning)) 100%
+  );
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+/* Toggle knob */
+.crafts-theme-toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: var(--crafts-radius-md);
+  box-shadow: var(--crafts-shadow-md);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Icons inside toggle */
+.crafts-theme-toggle-icon {
+  width: 14px;
+  height: 14px;
+  transition: all 0.3s ease;
+  opacity: 0.9;
+}
+
+.crafts-theme-toggle-icon[data-lucide="sun"] {
+  color: var(--crafts-warning);
+}
+
+.crafts-theme-toggle-icon[data-lucide="moon"] {
+  color: var(--crafts-gray-700);
+}
+
+/* Checked state (Dark mode) */
+.crafts-theme-toggle
+  input[type="checkbox"]:checked
+  + .crafts-theme-toggle-track {
+  background: linear-gradient(
+    135deg,
+    var(--crafts-gray-600) 0%,
+    var(--crafts-gray-800) 100%
+  );
+}
+
+.crafts-theme-toggle
+  input[type="checkbox"]:checked
+  + .crafts-theme-toggle-track
+  .crafts-theme-toggle-knob {
+  transform: translateX(32px);
+  background: var(--crafts-gray-200);
+}
+
+/* Icon states */
+.crafts-theme-toggle
+  input[type="checkbox"]:not(:checked)
+  + .crafts-theme-toggle-track
+  .crafts-theme-toggle-icon[data-lucide="moon"] {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.crafts-theme-toggle
+  input[type="checkbox"]:checked
+  + .crafts-theme-toggle-track
+  .crafts-theme-toggle-icon[data-lucide="sun"] {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.crafts-theme-toggle
+  input[type="checkbox"]:not(:checked)
+  + .crafts-theme-toggle-track
+  .crafts-theme-toggle-icon[data-lucide="sun"] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.crafts-theme-toggle
+  input[type="checkbox"]:checked
+  + .crafts-theme-toggle-track
+  .crafts-theme-toggle-icon[data-lucide="moon"] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Focus state for accessibility */
+.crafts-theme-toggle input[type="checkbox"]:focus + .crafts-theme-toggle-track {
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--crafts-primary) 40%, transparent);
+}
+
+/* Compact version */
+.crafts-theme-toggle.compact {
+  min-width: 56px;
+  height: 28px;
+}
+
+.crafts-theme-toggle.compact .crafts-theme-toggle-knob {
+  width: 18px;
+  height: 18px;
+  top: 1px;
+  left: 1px;
+}
+
+.crafts-theme-toggle.compact
+  input[type="checkbox"]:checked
+  + .crafts-theme-toggle-track
+  .crafts-theme-toggle-knob {
+  transform: translateX(28px);
+}
+
+.crafts-theme-toggle.compact .crafts-theme-toggle-icon {
+  width: 12px;
+  height: 12px;
+}
+
+/* With label */
+.crafts-theme-toggle-with-label {
+  display: flex;
+  align-items: center;
+  gap: var(--crafts-space-sm);
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.crafts-theme-toggle-label {
+  font-size: var(--crafts-text-sm);
+  font-weight: var(--crafts-font-weight-medium);
+  color: var(--crafts-text-secondary);
+  white-space: nowrap;
+}
+
+/* Toggle group for multiple options */
+.crafts-theme-toggle-group {
+  display: inline-flex;
+  background: var(--crafts-bg-secondary);
+  border: 1px solid var(--crafts-border-color);
+  border-radius: var(--crafts-radius-lg);
+  padding: var(--crafts-space-xs);
+  gap: var(--crafts-space-sm);
+}
+
+@media (max-width: 640px) {
+  .crafts-theme-toggle-group {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.crafts-theme-option {
+  padding: var(--crafts-space-xs) var(--crafts-space-md);
+  border: none;
+  background: transparent;
+  color: var(--crafts-text-secondary);
+  border-radius: var(--crafts-radius-md);
+  cursor: pointer;
+  font-size: var(--crafts-text-sm);
+  font-weight: var(--crafts-font-weight-medium);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--crafts-space-xs);
+  min-width: 42px;
+  height: 36px;
+}
+
+.crafts-theme-option:hover {
+  background: var(--crafts-bg-primary);
+  color: var(--crafts-text-primary);
+}
+
+.crafts-theme-option.active {
+  background: var(--crafts-primary);
+  color: white;
+  box-shadow: var(--crafts-shadow-sm);
+}
+
+.crafts-theme-option .crafts-icon {
+  margin: 0;
+}

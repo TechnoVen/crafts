@@ -1,0 +1,73 @@
+/*
+ * CRAFTS Card Components
+ * Flexible card containers for content organization
+ * Inspired by Notion's clean card design
+ */
+
+.crafts-card {
+  background: var(--crafts-bg-primary);
+  border: 1px solid var(--crafts-border-color);
+  border-radius: var(--crafts-radius-lg);
+  padding: var(--crafts-space-lg);
+  box-shadow: var(--crafts-shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.crafts-card:hover {
+  box-shadow: var(--crafts-shadow-md);
+  transform: translateY(-1px);
+}
+
+/* Card variants */
+.crafts-card-bordered {
+  border: 1px solid var(--crafts-border-color);
+}
+
+.crafts-card-shadow {
+  border: none;
+  box-shadow: var(--crafts-shadow-md);
+}
+
+.crafts-card-flat {
+  border: none;
+  box-shadow: none;
+  background: var(--crafts-bg-secondary);
+}
+
+/* Card elements */
+.crafts-card-header {
+  padding-bottom: var(--crafts-space-md);
+  margin-bottom: var(--crafts-space-md);
+  border-bottom: 1px solid var(--crafts-border-color);
+}
+
+.crafts-card-title {
+  font-size: var(--crafts-text-xl);
+  font-weight: var(--crafts-font-weight-semibold);
+  color: var(--crafts-text-primary);
+  margin: 0;
+}
+
+.crafts-card-body {
+  color: var(--crafts-text-secondary);
+}
+
+.crafts-card-footer {
+  padding-top: var(--crafts-space-md);
+  margin-top: var(--crafts-space-md);
+  border-top: 1px solid var(--crafts-border-color);
+}
+
+/* Grid cards for feature sections */
+.crafts-card-grid {
+  display: grid;
+  gap: var(--crafts-space-lg);
+}
+
+.crafts-card-grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.crafts-card-grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}

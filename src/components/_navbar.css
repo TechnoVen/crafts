@@ -1,0 +1,172 @@
+/*
+ * CRAFTS Navigation System
+ * Three-level navigation with proper container constraints
+ * Prevents edge-to-edge stretching
+ */
+
+/* === TOP NAVBAR (Utility Bar) === */
+.crafts-topbar {
+  background: var(--crafts-bg-secondary);
+  border-bottom: 1px solid var(--crafts-border-color);
+  padding: var(--crafts-space-sm) 0;
+  font-size: var(--crafts-text-sm);
+  width: 100%;
+}
+
+.crafts-topbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.crafts-topbar-left,
+.crafts-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--crafts-space-md);
+}
+
+.crafts-topbar-link {
+  color: var(--crafts-text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.crafts-topbar-link:hover {
+  color: var(--crafts-primary);
+}
+
+/* === HEADER (Logo Area) === */
+.crafts-header {
+  padding: var(--crafts-space-xl) 0;
+  background: var(--crafts-bg-primary);
+  border-bottom: 1px solid var(--crafts-border-color);
+  width: 100%;
+}
+
+.crafts-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.crafts-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--crafts-space-sm);
+  font-size: var(--crafts-text-2xl);
+  font-weight: var(--crafts-font-weight-bold);
+  color: var(--crafts-text-primary);
+  text-decoration: none;
+}
+
+.crafts-logo:hover {
+  color: var(--crafts-primary);
+}
+
+.crafts-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--crafts-space-md);
+}
+
+/* === MAIN NAVBAR (Primary Navigation) === */
+.crafts-main-nav {
+  background: var(--crafts-bg-secondary);
+  border-bottom: 1px solid var(--crafts-border-color);
+  width: 100%;
+}
+
+.crafts-main-nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.crafts-nav-links {
+  display: flex;
+  gap: var(--crafts-space-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.crafts-nav-link {
+  display: block;
+  padding: var(--crafts-space-md) var(--crafts-space-sm);
+  color: var(--crafts-text-secondary);
+  text-decoration: none;
+  font-weight: var(--crafts-font-weight-medium);
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.crafts-nav-link:hover,
+.crafts-nav-link.active {
+  color: var(--crafts-primary);
+  border-bottom-color: var(--crafts-primary);
+}
+
+.crafts-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--crafts-space-sm);
+}
+
+/* Mobile menu toggle */
+.crafts-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--crafts-text-primary);
+  cursor: pointer;
+  padding: var(--crafts-space-sm);
+}
+
+/* Responsive design with container preservation */
+@media (max-width: 768px) {
+  .crafts-topbar-content {
+    flex-direction: column;
+    gap: var(--crafts-space-sm);
+    text-align: center;
+  }
+
+  .crafts-header-content {
+    flex-direction: column;
+    gap: var(--crafts-space-md);
+    text-align: center;
+  }
+
+  .crafts-nav-toggle {
+    display: block;
+  }
+
+  .crafts-nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--crafts-bg-primary);
+    border-top: 1px solid var(--crafts-border-color);
+    flex-direction: column;
+    gap: 0;
+    box-shadow: var(--crafts-shadow-lg);
+    z-index: 1000;
+    width: 100%;
+  }
+
+  .crafts-nav-links.show {
+    display: flex;
+  }
+
+  .crafts-nav-link {
+    padding: var(--crafts-space-md);
+    border-bottom: 1px solid var(--crafts-border-color);
+    border-left: none;
+    border-right: none;
+  }
+}

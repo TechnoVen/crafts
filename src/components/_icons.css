@@ -1,0 +1,77 @@
+/* CRAFTS Icon System */
+.crafts-icon {
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  vertical-align: middle;
+}
+
+/* Icon Sizes */
+.crafts-icon-xs {
+  width: 0.75em;
+  height: 0.75em;
+  stroke-width: 2;
+}
+
+.crafts-icon-sm {
+  width: 1em;
+  height: 1em;
+}
+
+.crafts-icon-lg {
+  width: 1.5em;
+  height: 1.5em;
+  stroke-width: 1.25;
+}
+
+.crafts-icon-xl {
+  width: 2em;
+  height: 2em;
+  stroke-width: 1;
+}
+
+/* Icon Colors */
+.crafts-icon-primary {
+  color: var(--crafts-primary);
+}
+
+.crafts-icon-muted {
+  color: var(--crafts-text-secondary);
+}
+
+.crafts-icon-success {
+  color: var(--crafts-success);
+}
+
+.crafts-icon-warning {
+  color: var(--crafts-warning);
+}
+
+.crafts-icon-error {
+  color: var(--crafts-error);
+}
+
+/* Icon in buttons */
+.crafts-btn .crafts-icon {
+  margin-right: var(--crafts-space-xs);
+}
+
+.crafts-btn .crafts-icon:last-child {
+  margin-right: 0;
+  margin-left: var(--crafts-space-xs);
+}
+
+/* Icon only buttons */
+.crafts-btn-icon {
+  padding: var(--crafts-space-sm);
+  border-radius: var(--crafts-radius-md);
+}
+
+.crafts-btn-icon .crafts-icon {
+  margin: 0;
+}

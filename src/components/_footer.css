@@ -1,0 +1,65 @@
+/*
+ * CRAFTS Footer Component
+ * Clean, responsive footer with columns and copyright
+ * Supports multiple layout variations
+ */
+
+.crafts-footer {
+  background: var(--crafts-bg-secondary);
+  border-top: 1px solid var(--crafts-border-color);
+  margin-top: var(--crafts-space-2xl);
+  padding: var(--crafts-space-xl) 0;
+}
+
+.crafts-footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--crafts-space-xl);
+  margin-bottom: var(--crafts-space-lg);
+}
+
+.crafts-footer-section h3 {
+  margin-bottom: var(--crafts-space-md);
+  color: var(--crafts-text-primary);
+  font-size: var(--crafts-text-lg);
+}
+
+.crafts-footer-section p {
+  color: var(--crafts-text-secondary);
+  margin-bottom: var(--crafts-space-sm);
+}
+
+.crafts-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.crafts-footer-links li {
+  margin-bottom: var(--crafts-space-xs);
+}
+
+.crafts-footer-links a {
+  color: var(--crafts-text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.crafts-footer-links a:hover {
+  color: var(--crafts-primary);
+}
+
+.crafts-footer-bottom {
+  padding-top: var(--crafts-space-lg);
+  border-top: 1px solid var(--crafts-border-color);
+  text-align: center;
+  color: var(--crafts-text-secondary);
+  font-size: var(--crafts-text-sm);
+}
+
+/* Compact footer variant */
+.crafts-footer-compact .crafts-footer-content {
+  grid-template-columns: 1fr;
+  text-align: center;
+  gap: var(--crafts-space-md);
+}

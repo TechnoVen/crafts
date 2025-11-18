@@ -1,0 +1,583 @@
+/*! CRAFTS CSS v1.0.0 - 2025-11-18 */
+/*! https://github.com/TechnoVen/crafts */
+
+
+/* === _variables.css === */
+
+/* CRAFTS CSS Design Tokens */
+:root {
+  /* === SPACING SCALE === */
+  --crafts-space-unit: 1rem;
+  --crafts-space-xs: calc(var(--crafts-space-unit) / 4);
+  --crafts-space-sm: calc(var(--crafts-space-unit) / 2);
+  --crafts-space-md: var(--crafts-space-unit);
+  --crafts-space-lg: calc(var(--crafts-space-unit) * 1.5);
+  --crafts-space-xl: calc(var(--crafts-space-unit) * 2);
+  --crafts-space-2xl: calc(var(--crafts-space-unit) * 3);
+
+  /* === COLOR SYSTEM === */
+  /* Primary Colors */
+  --crafts-primary-h: 220;
+  --crafts-primary-s: 100%;
+  --crafts-primary-l: 50%;
+  --crafts-primary: hsl(
+    var(--crafts-primary-h),
+    var(--crafts-primary-s),
+    var(--crafts-primary-l)
+  );
+
+  /* Neutral Colors */
+  --crafts-white: hsl(0, 0%, 100%);
+  --crafts-gray-50: hsl(0, 0%, 98%);
+  --crafts-gray-100: hsl(0, 0%, 96%);
+  --crafts-gray-200: hsl(0, 0%, 90%);
+  --crafts-gray-300: hsl(0, 0%, 80%);
+  --crafts-gray-400: hsl(0, 0%, 60%);
+  --crafts-gray-500: hsl(0, 0%, 50%);
+  --crafts-gray-600: hsl(0, 0%, 40%);
+  --crafts-gray-700: hsl(0, 0%, 30%);
+  --crafts-gray-800: hsl(0, 0%, 20%);
+  --crafts-gray-900: hsl(0, 0%, 10%);
+  --crafts-black: hsl(0, 0%, 0%);
+
+  /* Semantic Colors */
+  --crafts-bg-primary: var(--crafts-white);
+  --crafts-bg-secondary: var(--crafts-gray-50);
+  --crafts-text-primary: var(--crafts-gray-900);
+  --crafts-text-secondary: var(--crafts-gray-600);
+  --crafts-border-color: var(--crafts-gray-200);
+
+  /* Status Colors */
+  --crafts-success: hsl(142, 76%, 36%);
+  --crafts-warning: hsl(38, 92%, 50%);
+  --crafts-error: hsl(0, 84%, 60%);
+  --crafts-info: hsl(221, 83%, 53%);
+
+  /* === TYPOGRAPHY === */
+  /* Font Families */
+  --crafts-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+
+  --crafts-font-mono: "SFMono-Regular", "Menlo", "Monaco", "Consolas",
+    "Liberation Mono", "Courier New", monospace;
+
+  --crafts-font-serif: "Charter", "Bitstream Charter", "Sitka Text", Cambria,
+    serif;
+
+  /* Font Weights */
+  --crafts-font-weight-normal: 400;
+  --crafts-font-weight-medium: 500;
+  --crafts-font-weight-semibold: 600;
+  --crafts-font-weight-bold: 700;
+
+  /* Line Heights */
+  --crafts-line-height-tight: 1.25;
+  --crafts-line-height-normal: 1.5;
+  --crafts-line-height-relaxed: 1.75;
+
+  /* Font Sizes */
+  --crafts-text-xs: 0.75rem;
+  --crafts-text-sm: 0.875rem;
+  --crafts-text-base: 1rem;
+  --crafts-text-lg: 1.125rem;
+  --crafts-text-xl: 1.25rem;
+  --crafts-text-2xl: 1.5rem;
+  --crafts-text-3xl: 1.875rem;
+  --crafts-text-4xl: 2.25rem;
+
+  /* === BORDER RADIUS === */
+  --crafts-radius-sm: 0.25rem;
+  --crafts-radius-md: 0.375rem;
+  --crafts-radius-lg: 0.5rem;
+  --crafts-radius-xl: 0.75rem;
+  --crafts-radius-2xl: 1rem;
+
+  /* === SHADOWS === */
+  --crafts-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --crafts-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --crafts-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --crafts-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  /* === COMPLEXITY LEVELS === */
+  --crafts-complexity: simple; /* simple | balanced | complex */
+}
+
+/* Dark Mode Variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --crafts-bg-primary: hsl(0, 0%, 8%);
+    --crafts-bg-secondary: hsl(0, 0%, 12%);
+    --crafts-text-primary: hsl(0, 0%, 95%);
+    --crafts-text-secondary: hsl(0, 0%, 70%);
+    --crafts-border-color: hsl(0, 0%, 20%);
+
+    --crafts-success: hsl(142, 76%, 46%);
+    --crafts-warning: hsl(38, 92%, 60%);
+    --crafts-error: hsl(0, 84%, 70%);
+    --crafts-info: hsl(221, 83%, 63%);
+  }
+}
+
+/* Beautiful theme system */
+[data-theme="light"] {
+  --crafts-bg-primary: hsl(0, 0%, 100%);
+  --crafts-bg-secondary: hsl(0, 0%, 98%);
+  --crafts-text-primary: hsl(0, 0%, 10%);
+  --crafts-text-secondary: hsl(0, 0%, 40%);
+  --crafts-border-color: hsl(0, 0%, 85%);
+  --crafts-shadow-color: 0, 0%, 0%;
+}
+
+[data-theme="dark"] {
+  --crafts-bg-primary: hsl(0, 0%, 8%);
+  --crafts-bg-secondary: hsl(0, 0%, 12%);
+  --crafts-text-primary: hsl(0, 0%, 98%);
+  --crafts-text-secondary: hsl(0, 0%, 70%);
+  --crafts-border-color: hsl(0, 0%, 20%);
+  --crafts-shadow-color: 0, 0%, 100%;
+}
+
+/* Auto theme uses system preference */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --crafts-bg-primary: hsl(0, 0%, 8%);
+    --crafts-bg-secondary: hsl(0, 0%, 12%);
+    --crafts-text-primary: hsl(0, 0%, 98%);
+    --crafts-text-secondary: hsl(0, 0%, 70%);
+    --crafts-border-color: hsl(0, 0%, 20%);
+    --crafts-shadow-color: 0, 0%, 100%;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --crafts-border-color: var(--crafts-black);
+    --crafts-shadow-sm: 0 0 0 1px var(--crafts-black);
+    --crafts-shadow-md: 0 0 0 2px var(--crafts-black);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --crafts-transition-duration: 0.01ms;
+  }
+}
+
+
+/* === _reset.css === */
+
+/* 
+ * CRAFTS CSS Smart Reset
+ * Modern reset that preserves semantic meaning while ensuring proper container behavior
+ */
+
+/* Box sizing reset with inheritance */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding from all elements */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* HTML and body reset to ensure no edge-to-edge issues */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Body defaults with proper container behavior */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: var(--crafts-line-height);
+  font-family: var(--crafts-font-family);
+  background-color: var(--crafts-bg-primary);
+  color: var(--crafts-text-primary);
+  /* Ensure body acts as proper container */
+  display: flex;
+  flex-direction: column;
+}
+
+/* HTML focus outline preservation */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Remove list styles on ul, ol elements */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Anchor elements */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Button reset */
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Form element reset */
+input,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  background: none;
+}
+
+/* Media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* === _semantic.css === */
+
+/* CRAFTS CSS Semantic Elements */
+/* Beautiful, accessible styling for native HTML elements */
+
+/* ===== TYPOGRAPHY ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: var(--crafts-space-md);
+  color: var(--crafts-text-primary);
+}
+
+h1 {
+  font-size: var(--crafts-text-3xl);
+  margin-top: var(--crafts-space-xl);
+}
+
+h2 {
+  font-size: var(--crafts-text-2xl);
+  margin-top: var(--crafts-space-lg);
+}
+
+h3 {
+  font-size: var(--crafts-text-xl);
+  margin-top: var(--crafts-space-lg);
+}
+
+p {
+  margin-bottom: var(--crafts-space-md);
+  color: var(--crafts-text-primary);
+  max-width: 65ch; /* Optimal reading length */
+}
+
+/* ===== LISTS ===== */
+ul,
+ol {
+  margin-bottom: var(--crafts-space-md);
+  padding-left: var(--crafts-space-lg);
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  margin-bottom: var(--crafts-space-xs);
+  color: var(--crafts-text-primary);
+}
+
+/* ===== FORM ELEMENTS ===== */
+label {
+  display: block;
+  margin-bottom: var(--crafts-space-xs);
+  font-weight: 500;
+  color: var(--crafts-text-primary);
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: var(--crafts-space-sm) var(--crafts-space-md);
+  border: 1px solid var(--crafts-border-color);
+  border-radius: var(--crafts-radius-md);
+  background-color: var(--crafts-bg-primary);
+  color: var(--crafts-text-primary);
+  font-size: var(--crafts-text-base);
+  margin-bottom: var(--crafts-space-md);
+  transition: all 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--crafts-primary);
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--crafts-primary) 25%, transparent);
+}
+
+/* ===== BUTTONS ===== */
+button,
+input[type="submit"],
+input[type="button"] {
+  display: inline-block;
+  padding: var(--crafts-space-sm) var(--crafts-space-lg);
+  background-color: var(--crafts-primary);
+  color: white;
+  border: none;
+  border-radius: var(--crafts-radius-md);
+  font-weight: 500;
+  font-size: var(--crafts-text-base);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: var(--crafts-space-md);
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-color: color-mix(in srgb, var(--crafts-primary) 80%, black);
+  transform: translateY(-1px);
+}
+
+button:active,
+input[type="submit"]:active,
+input[type="button"]:active {
+  transform: translateY(0);
+}
+
+/* ===== LINKS ===== */
+a {
+  color: var(--crafts-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--crafts-primary) 80%, black);
+}
+
+/* ===== TEXT EMPHASIS ===== */
+strong,
+b {
+  font-weight: 600;
+  color: var(--crafts-text-primary);
+}
+
+em,
+i {
+  font-style: italic;
+  color: var(--crafts-text-primary);
+}
+
+/* ===== SECTIONS ===== */
+section {
+  margin-bottom: var(--crafts-space-xl);
+  padding: var(--crafts-space-lg);
+  background-color: var(--crafts-bg-secondary);
+  border-radius: var(--crafts-radius-lg);
+}
+
+/* ===== TABLES ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--crafts-space-md);
+}
+
+th,
+td {
+  padding: var(--crafts-space-sm);
+  text-align: left;
+  border-bottom: 1px solid var(--crafts-border-color);
+}
+
+th {
+  font-weight: 600;
+  background-color: var(--crafts-bg-secondary);
+}
+
+/* ===== BLOCKQUOTES ===== */
+blockquote {
+  padding: var(--crafts-space-md) var(--crafts-space-lg);
+  margin: var(--crafts-space-lg) 0;
+  border-left: 4px solid var(--crafts-primary);
+  background-color: var(--crafts-bg-secondary);
+  font-style: italic;
+}
+
+/* ===== CODE ===== */
+code {
+  background-color: var(--crafts-bg-secondary);
+  padding: 0.2em 0.4em;
+  border-radius: var(--crafts-radius-sm);
+  font-family: var(--crafts-font-mono);
+  font-size: 0.875em;
+}
+
+pre {
+  background-color: var(--crafts-bg-secondary);
+  padding: var(--crafts-space-md);
+  border-radius: var(--crafts-radius-md);
+  overflow-x: auto;
+  margin-bottom: var(--crafts-space-md);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* ===== ENHANCED TYPOGRAPHY UTILITIES ===== */
+body {
+  font-family: var(--crafts-font-family);
+  font-weight: var(--crafts-font-weight-normal);
+  line-height: var(--crafts-line-height-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Font weight utilities */
+.font-normal {
+  font-weight: var(--crafts-font-weight-normal);
+}
+.font-medium {
+  font-weight: var(--crafts-font-weight-medium);
+}
+.font-semibold {
+  font-weight: var(--crafts-font-weight-semibold);
+}
+.font-bold {
+  font-weight: var(--crafts-font-weight-bold);
+}
+
+/* Line height utilities */
+.leading-tight {
+  line-height: var(--crafts-line-height-tight);
+}
+.leading-normal {
+  line-height: var(--crafts-line-height-normal);
+}
+.leading-relaxed {
+  line-height: var(--crafts-line-height-relaxed);
+}
+
+/* Font family utilities */
+.font-sans {
+  font-family: var(--crafts-font-family);
+}
+.font-mono {
+  font-family: var(--crafts-font-mono);
+}
+.font-serif {
+  font-family: var(--crafts-font-serif);
+}
+
+/* Text size utilities */
+.text-xs {
+  font-size: var(--crafts-text-xs);
+}
+.text-sm {
+  font-size: var(--crafts-text-sm);
+}
+.text-base {
+  font-size: var(--crafts-text-base);
+}
+.text-lg {
+  font-size: var(--crafts-text-lg);
+}
+.text-xl {
+  font-size: var(--crafts-text-xl);
+}
+.text-2xl {
+  font-size: var(--crafts-text-2xl);
+}
+.text-3xl {
+  font-size: var(--crafts-text-3xl);
+}
+.text-4xl {
+  font-size: var(--crafts-text-4xl);
+}
+
+/* Text color utilities */
+.text-primary {
+  color: var(--crafts-text-primary);
+}
+.text-secondary {
+  color: var(--crafts-text-secondary);
+}
+.text-success {
+  color: var(--crafts-success);
+}
+.text-warning {
+  color: var(--crafts-warning);
+}
+.text-error {
+  color: var(--crafts-error);
+}
+
+/* Text alignment */
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
