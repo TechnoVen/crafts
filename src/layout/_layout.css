@@ -122,6 +122,113 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
+/* 
+ * Stack utilities - vertical spacing system
+ * Inspired by Every Layout's stack pattern
+ */
+.crafts-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--crafts-space-md);
+}
+
+.crafts-stack-xs {
+  gap: var(--crafts-space-xs);
+}
+
+.crafts-stack-sm {
+  gap: var(--crafts-space-sm);
+}
+
+.crafts-stack-md {
+  gap: var(--crafts-space-md);
+}
+
+.crafts-stack-lg {
+  gap: var(--crafts-space-lg);
+}
+
+.crafts-stack-xl {
+  gap: var(--crafts-space-xl);
+}
+
+.crafts-stack-2xl {
+  gap: var(--crafts-space-2xl);
+}
+
+/* 
+ * Cluster utilities - horizontal grouping with gaps
+ * Useful for tags, badges, button groups, etc.
+ */
+.crafts-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--crafts-space-md);
+  align-items: center;
+}
+
+.crafts-cluster-xs {
+  gap: var(--crafts-space-xs);
+}
+
+.crafts-cluster-sm {
+  gap: var(--crafts-space-sm);
+}
+
+.crafts-cluster-md {
+  gap: var(--crafts-space-md);
+}
+
+.crafts-cluster-lg {
+  gap: var(--crafts-space-lg);
+}
+
+.crafts-cluster-xl {
+  gap: var(--crafts-space-xl);
+}
+
+/* Cluster alignment variants */
+.crafts-cluster-start {
+  align-items: flex-start;
+}
+
+.crafts-cluster-center {
+  align-items: center;
+}
+
+.crafts-cluster-end {
+  align-items: flex-end;
+}
+
+.crafts-cluster-stretch {
+  align-items: stretch;
+}
+
+/* Cluster justification */
+.crafts-cluster-justify-start {
+  justify-content: flex-start;
+}
+
+.crafts-cluster-justify-center {
+  justify-content: center;
+}
+
+.crafts-cluster-justify-end {
+  justify-content: flex-end;
+}
+
+.crafts-cluster-justify-between {
+  justify-content: space-between;
+}
+
+.crafts-cluster-justify-around {
+  justify-content: space-around;
+}
+
+.crafts-cluster-justify-evenly {
+  justify-content: space-evenly;
+}
+
 /* Sidebar layout with container constraints */
 .crafts-with-sidebar {
   display: grid;

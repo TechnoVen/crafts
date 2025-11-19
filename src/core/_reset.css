@@ -28,7 +28,7 @@ body {
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
-  line-height: var(--crafts-line-height);
+  line-height: var(--crafts-line-height-normal);
   font-family: var(--crafts-font-family);
   background-color: var(--crafts-bg-primary);
   color: var(--crafts-text-primary);
