@@ -1,21 +1,28 @@
 /* CRAFTS Icon System */
+
+/* Base style for icons (optimized for line-art SVGs like Lucide/Feather) */
 .crafts-icon {
   display: inline-block;
+  /* Default size: 1.25 times the current font size */
   width: 1.25em;
   height: 1.25em;
+
+  /* SVG properties for color and line weight */
   stroke: currentColor;
-  stroke-width: 1.5;
+  stroke-width: 1.5; /* Default stroke weight */
   stroke-linecap: round;
   stroke-linejoin: round;
   fill: none;
+
+  /* Vertical alignment within text/buttons */
   vertical-align: middle;
 }
 
-/* Icon Sizes */
+/* === Icon Sizes === */
 .crafts-icon-xs {
   width: 0.75em;
   height: 0.75em;
-  stroke-width: 2;
+  stroke-width: 2; /* Thicker for very small icons */
 }
 
 .crafts-icon-sm {
@@ -32,10 +39,10 @@
 .crafts-icon-xl {
   width: 2em;
   height: 2em;
-  stroke-width: 1;
+  stroke-width: 1; /* Thinner for larger icons */
 }
 
-/* Icon Colors */
+/* === Icon Colors (Utilities) === */
 .crafts-icon-primary {
   color: var(--crafts-primary);
 }
@@ -56,22 +63,26 @@
   color: var(--crafts-error);
 }
 
-/* Icon in buttons */
+/* === Icon in Buttons (Component Integration) === */
+
+/* Standard icons inside a button */
 .crafts-btn .crafts-icon {
   margin-right: var(--crafts-space-xs);
 }
 
+/* Handle trailing icons by resetting the right margin and adding a left margin */
 .crafts-btn .crafts-icon:last-child {
   margin-right: 0;
   margin-left: var(--crafts-space-xs);
 }
 
-/* Icon only buttons */
+/* Icon only buttons (e.g., a "close" button or a toggle) */
 .crafts-btn-icon {
+  /* Use the small space as padding to make it a square around the icon */
   padding: var(--crafts-space-sm);
   border-radius: var(--crafts-radius-md);
 }
 
 .crafts-btn-icon .crafts-icon {
-  margin: 0;
+  margin: 0; /* Remove the standard button margin for a clean look */
 }

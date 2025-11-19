@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
     <title>CRAFTS CSS - Container Test</title>
     <link rel="stylesheet" href="../dist/crafts.css">
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
         .test-border {
-            border: 2px dashed var(--crafts-primary);
+            border: 2px dashed var(--crafts-primary, #8b5cf6);
         }
 
         .bg-test {
-            background: color-mix(in srgb, var(--crafts-primary) 5%, transparent);
+            background: color-mix(in srgb, var(--crafts-primary, #8b5cf6) 5%, transparent);
         }
     </style>
 </head>
@@ -89,8 +89,17 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"
+        integrity="sha384-38b060a751ac96384cd9327eb1b1e36a21fdb71114be07434c0cc7bf63f6e1da274edebfe76f65fbd51ad2f14898b95b"
+        crossorigin="anonymous" defer></script>
     <script>
-        lucide.createIcons();
+        window.addEventListener('DOMContentLoaded', () => {
+            try {
+                lucide?.createIcons();
+            } catch (error) {
+                console.error('Lucide icon library failed to initialize.', error);
+            }
+        });
     </script>
 </body>
 

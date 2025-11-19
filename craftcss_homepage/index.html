@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRAFTS CSS • The Semantic Framework</title>
+    <meta name="description"
+        content="A clean, responsive, accessible, flexible, typographic, and semantic CSS framework.">
+
+    <link rel="stylesheet" href="crafts.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+
+<body class="crafts-page">
+
+    <nav class="crafts-main-nav">
+        <div class="crafts-container crafts-main-nav-content">
+            <a href="#" class="crafts-logo">
+                <i data-lucide="box" class="crafts-icon crafts-icon-primary"></i>
+                CRAFTS
+            </a>
+
+            <ul class="crafts-nav-links hidden-mobile">
+                <li><a href="#docs" class="crafts-nav-link">Documentation</a></li>
+                <li><a href="#components" class="crafts-nav-link">Components</a></li>
+                <li><a href="#examples" class="crafts-nav-link">Examples</a></li>
+            </ul>
+
+            <div class="crafts-nav-actions" style="display: flex; gap: 0.75rem; align-items: center;">
+                <label class="crafts-theme-toggle" title="Toggle theme" style="margin-right: 0.5rem;">
+                    <input type="checkbox" id="themeToggle">
+                    <div class="crafts-theme-toggle-track">
+                        <div class="crafts-theme-toggle-knob">
+                            <i data-lucide="sun" class="theme-icon-sun"></i>
+                            <i data-lucide="moon" class="theme-icon-moon"></i>
+                        </div>
+                    </div>
+                </label>
+
+                <a href="https://github.com/TechnoVen/crafts"
+                    class="crafts-btn crafts-btn-secondary crafts-btn-sm hidden-mobile">
+                    <i data-lucide="github" class="crafts-icon"></i>
+                    GitHub
+                </a>
+
+                <button class="crafts-nav-toggle hidden-desktop" id="navToggle">
+                    <i data-lucide="menu" class="crafts-icon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="crafts-container">
+            <div class="hero-badge" style="margin-bottom: 1rem;">
+                <span
+                    style="background: var(--crafts-bg-secondary); padding: 0.25rem 0.75rem; border-radius: 2rem; font-size: 0.875rem; border: 1px solid var(--crafts-border-color);">
+                    New: v1.0 is now available 🎉
+                </span>
+            </div>
+            <h1 class="hero-title">Zero-Config Beauty for<br>Semantic HTML</h1>
+            <p class="hero-subtitle">
+                A minimal, class-light framework that makes your raw HTML look professional immediately.
+                Clean. Responsive. Accessible. Flexible. Typographic. Semantic.
+            </p>
+
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <button class="crafts-btn crafts-btn-lg">
+                    <i data-lucide="rocket" class="crafts-icon"></i>
+                    Get Started
+                </button>
+                <button class="crafts-btn crafts-btn-secondary crafts-btn-lg">
+                    <i data-lucide="book-open" class="crafts-icon"></i>
+                    Read the Docs
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="crafts-container" style="padding-top: 2rem;">
+
+        <section class="crafts-grid crafts-grid-3">
+            <div class="crafts-card feature-card">
+                <div style="margin-bottom: 1rem; color: var(--crafts-primary);">
+                    <i data-lucide="feather" class="crafts-icon crafts-icon-lg"></i>
+                </div>
+                <h3 class="text-xl font-bold">Lightweight</h3>
+                <p class="text-secondary">
+                    Under 15KB gzipped. We prioritize performance and only load the CSS you actually need.
+                </p>
+            </div>
+            <div class="crafts-card feature-card">
+                <div style="margin-bottom: 1rem; color: var(--crafts-success);">
+                    <i data-lucide="smartphone" class="crafts-icon crafts-icon-lg"></i>
+                </div>
+                <h3 class="text-xl font-bold">Responsive</h3>
+                <p class="text-secondary">
+                    Mobile-first grid system that adapts fluidly to any screen size without complex media queries.
+                </p>
+            </div>
+            <div class="crafts-card feature-card">
+                <div style="margin-bottom: 1rem; color: var(--crafts-warning);">
+                    <i data-lucide="moon" class="crafts-icon crafts-icon-lg"></i>
+                </div>
+                <h3 class="text-xl font-bold">Dark Mode</h3>
+                <p class="text-secondary">
+                    First-class support for light and dark themes, automatically respecting user system preferences.
+                </p>
+            </div>
+        </section>
+
+        <section class="code-preview">
+            <div class="crafts-grid crafts-grid-2" style="align-items: center;">
+                <div>
+                    <h2 class="text-2xl font-bold" style="margin-bottom: 1rem;">Write HTML. Get Design.</h2>
+                    <p class="text-secondary" style="margin-bottom: 1.5rem;">
+                        CRAFTS targets standard HTML tags. You don't need to learn a thousand utility classes just to
+                        style a paragraph or a button.
+                    </p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <i data-lucide="check" class="crafts-icon crafts-icon-success"></i> Semantic syntax
+                        </li>
+                        <li style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <i data-lucide="check" class="crafts-icon crafts-icon-success"></i> Accessible defaults
+                        </li>
+                        <li style="display: flex; gap: 0.5rem;">
+                            <i data-lucide="check" class="crafts-icon crafts-icon-success"></i> No build step required
+                        </li>
+                    </ul>
+                </div>
+                <div class="crafts-card crafts-card-flat" style="font-size: 0.9rem;">
+                    <pre style="margin: 0; background: transparent; padding: 0;"><code>&lt;nav class="crafts-nav"&gt;
+  &lt;a href="#" class="logo"&gt;Brand&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;main class="container"&gt;
+  &lt;h1&gt;Hello World&lt;/h1&gt;
+  &lt;button&gt;Click Me&lt;/button&gt;
+&lt;/main&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="crafts-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="crafts-logo" style="margin-bottom: 1rem; display: inline-block;">
+                        <i data-lucide="box" class="crafts-icon"></i> CRAFTS
+                    </a>
+                    <p class="text-secondary">
+                        © Copyright 2025, Designed and built with love by <strong>Ahmed Nadir</strong>.
+                    </p>
+                </div>
+
+                <div>
+                    <span class="footer-heading">Framework</span>
+                    <a href="#" class="footer-link">Getting Started</a>
+                    <a href="#" class="footer-link">Download</a>
+                </div>
+                <div>
+                    <span class="footer-heading">Resources</span>
+                    <a href="#" class="footer-link">Documentation</a>
+                    <a href="#" class="footer-link">Examples</a>
+                </div>
+                <div>
+                    <span class="footer-heading">Community</span>
+                    <a href="https://github.com/TechnoVen/crafts" class="footer-link">GitHub</a>
+                    <a href="#" class="footer-link">Discord</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p style="margin-top: 0.25rem;">
+                    Code licensed <a href="https://github.com/TechnoVen/crafts/blob/main/LICENSE">MIT</a>,
+                    docs <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, Currently v1.0.0.
+                </p>
+                <!--p style="margin-top: 0.25rem;">Currently v1.0.0.</p-->
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const toggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        const savedTheme = localStorage.getItem('crafts-theme') || 'auto';
+
+        html.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') toggle.checked = true;
+        else if (savedTheme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) toggle.checked = true;
+
+        toggle.addEventListener('change', (e) => {
+            const theme = e.target.checked ? 'dark' : 'light';
+            html.setAttribute('data-theme', theme);
+            localStorage.setItem('crafts-theme', theme);
+        });
+
+        document.getElementById('navToggle').addEventListener('click', () => {
+            const links = document.querySelector('.crafts-nav-links');
+            links.classList.toggle('hidden-mobile');
+            // Basic mobile toggle styles would typically be handled in CSS, 
+            // but for zero-config we toggle the class or inline styles.
+            if (!links.classList.contains('hidden-mobile')) {
+                links.style.display = 'flex';
+                links.style.flexDirection = 'column';
+                links.style.position = 'absolute';
+                links.style.top = '100%';
+                links.style.left = '0';
+                links.style.right = '0';
+                links.style.background = 'var(--crafts-bg-primary)';
+                links.style.padding = '1rem';
+                links.style.borderBottom = '1px solid var(--crafts-border-color)';
+                links.style.boxShadow = 'var(--crafts-shadow-lg)';
+            } else {
+                links.style.display = '';
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#ffffff">
     <title>CRAFTS CSS - Modern CSS Framework</title>
     <link rel="stylesheet" href="../dist/crafts.css">
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
     <style>
         .hero-gradient {
             background: linear-gradient(135deg,
@@ -17,10 +17,104 @@
             border-bottom: 1px solid var(--crafts-border-color);
         }
 
-        .feature-grid {
+        .crafts-section-alt {
+            background: var(--crafts-bg-secondary);
+        }
+
+        .demo-hero {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: var(--crafts-space-xl);
+        }
+
+        .hero-actions,
+        .cta-row {
+            display: flex;
+            gap: var(--crafts-space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: var(--crafts-space-2xl);
+        }
+
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--crafts-space-lg);
+        }
+
+        .card-heading {
+            display: flex;
+            align-items: center;
+            gap: var(--crafts-space-sm);
+            margin-bottom: var(--crafts-space-sm);
+        }
+
+        .card-heading-spaced {
+            margin-bottom: var(--crafts-space-lg);
+        }
+
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--crafts-space-xl);
+        }
+
+        .form-stack {
+            display: flex;
+            flex-direction: column;
+            gap: var(--crafts-space-md);
+        }
+
+        .theme-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--crafts-space-md);
+            flex-wrap: wrap;
+        }
+
+        .footer-note {
+            /*text-align: center;*/
+            text-align: left;
+            color: var(--crafts-text-secondary);
+        }
+
+        .crafts-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.35rem 0.8rem;
+            border-radius: var(--crafts-radius-full, 999px);
+            border: 1px solid var(--crafts-border-color);
+            background: var(--crafts-bg-secondary);
+            font-size: var(--crafts-text-sm);
+            font-weight: var(--crafts-font-weight-medium);
+        }
+
+        .crafts-badge-warning {
+            border-color: color-mix(in srgb, var(--crafts-warning) 40%, transparent);
+            color: var(--crafts-warning);
+        }
+
+        .crafts-badge-success {
+            border-color: color-mix(in srgb, var(--crafts-success) 40%, transparent);
+            color: var(--crafts-success);
+        }
+
+        .cta-row code {
+            display: inline-block;
+            padding: 0.5rem 0.75rem;
+            background: var(--crafts-bg-secondary);
+            border-radius: var(--crafts-radius-md);
+        }
+
+        .crafts-mb-0 {
+            margin-bottom: 0;
         }
     </style>
 </head>
@@ -30,232 +124,189 @@
     <div class="crafts-topbar">
         <div class="crafts-container crafts-topbar-content">
             <div class="crafts-topbar-left">
-                <span class="crafts-topbar-link">🎨 Fully customizable</span>
-                <span class="crafts-topbar-link">📱 Mobile-first</span>
+                <span class="crafts-topbar-link">CRAFTS CSS · Clean & Semantic</span>
             </div>
             <div class="crafts-topbar-right">
-                <a href="#" class="crafts-topbar-link">Documentation</a>
-                <a href="#" class="crafts-topbar-link">GitHub</a>
+                <a class="crafts-topbar-link" href="#">Docs</a>
+                <a class="crafts-topbar-link" href="#">GitHub</a>
                 <span class="crafts-topbar-link">v1.0.0</span>
             </div>
         </div>
     </div>
 
-    <!-- Main Header with Logo -->
+    <!-- Header -->
     <header class="crafts-header">
         <div class="crafts-container crafts-header-content">
             <a href="#" class="crafts-logo">
-                <i data-lucide="package" class="crafts-icon crafts-icon-primary crafts-icon-lg"></i>
+                <i data-lucide="package" class="crafts-icon crafts-icon-primary"></i>
                 CRAFTS CSS
             </a>
-            <div class="crafts-header-actions">
-                <div class="crafts-theme-controls">
-                    <!-- Beautiful theme toggle with label -->
-                    <div class="crafts-theme-toggle-with-label">
-                        <span class="crafts-theme-toggle-label">Theme</span>
-                        <label class="crafts-theme-toggle compact" title="Toggle between light and dark mode">
-                            <input type="checkbox" id="themeToggle">
-                            <div class="crafts-theme-toggle-track">
-                                <div class="crafts-theme-toggle-knob">
-                                    <i data-lucide="sun" class="crafts-theme-toggle-icon"></i>
-                                    <i data-lucide="moon" class="crafts-theme-toggle-icon"></i>
-                                </div>
+            <div class="crafts-header-actions theme-actions">
+                <div class="crafts-theme-toggle-with-label">
+                    <!--<span class="crafts-theme-toggle-label">Theme</span>-->
+                    <label class="crafts-theme-toggle compact" title="Toggle between light and dark">
+                        <input type="checkbox" id="themeToggle">
+                        <div class="crafts-theme-toggle-track">
+                            <div class="crafts-theme-toggle-knob">
+                                <i data-lucide="sun" class="crafts-theme-toggle-icon theme-icon-sun"></i>
+                                <i data-lucide="moon" class="crafts-theme-toggle-icon theme-icon-moon"></i>
                             </div>
-                        </label>
-                    </div>
-
-                    <!-- Theme options group -->
-                    <div class="crafts-theme-toggle-group">
-                        <button class="crafts-theme-option" data-theme="light" title="Light mode">
-                            <i data-lucide="sun" class="crafts-icon crafts-icon-sm"></i>
-                        </button>
-                        <button class="crafts-theme-option" data-theme="auto" title="Auto (system preference)">
-                            <i data-lucide="monitor" class="crafts-icon crafts-icon-sm"></i>
-                        </button>
-                        <button class="crafts-theme-option" data-theme="dark" title="Dark mode">
-                            <i data-lucide="moon" class="crafts-icon crafts-icon-sm"></i>
-                        </button>
-                    </div>
+                        </div>
+                    </label>
                 </div>
-
-                <button class="crafts-btn crafts-btn-secondary crafts-btn-sm">
+                <!--<div class="crafts-theme-toggle-group" role="group" aria-label="Theme options">
+                    <button class="crafts-theme-option" data-theme="light" aria-pressed="false" title="Light mode">
+                        <i data-lucide="sun" class="crafts-icon crafts-icon-sm"></i>
+                    </button>
+                    <button class="crafts-theme-option" data-theme="auto" aria-pressed="false"
+                        title="Auto (system preference)">
+                        <i data-lucide="monitor" class="crafts-icon crafts-icon-sm"></i>
+                    </button>
+                    <button class="crafts-theme-option" data-theme="dark" aria-pressed="false" title="Dark mode">
+                        <i data-lucide="moon" class="crafts-icon crafts-icon-sm"></i>
+                    </button>
+                </div>-->
+                <!--<button class="crafts-btn crafts-btn-secondary crafts-btn-sm">
                     <i data-lucide="download" class="crafts-icon"></i>
                     Download
-                </button>
+                </button>-->
             </div>
         </div>
     </header>
 
-    <!-- Main Navigation -->
+    <!-- Navigation -->
     <nav class="crafts-main-nav">
         <div class="crafts-container crafts-main-nav-content">
             <ul class="crafts-nav-links">
                 <li><a href="#" class="crafts-nav-link active">Home</a></li>
                 <li><a href="#" class="crafts-nav-link">Components</a></li>
-                <li><a href="#" class="crafts-nav-link">Documentation</a></li>
-                <li><a href="#" class="crafts-nav-link">Examples</a></li>
+                <li><a href="#" class="crafts-nav-link">Docs</a></li>
                 <li><a href="#" class="crafts-nav-link">Themes</a></li>
             </ul>
             <div class="crafts-nav-actions">
-                <button class="crafts-nav-toggle" id="navToggle">
+                <button class="crafts-nav-toggle" id="navToggle" aria-expanded="false" aria-label="Toggle navigation">
                     <i data-lucide="menu" class="crafts-icon"></i>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="crafts-section hero-gradient">
         <div class="crafts-container">
-            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <h1 class="text-4xl font-bold" style="margin-bottom: 1.5rem;">
-                    Build Beautiful Interfaces
-                </h1>
-                <p class="text-xl text-secondary leading-relaxed" style="margin-bottom: 2.5rem;">
-                    CRAFTS is a modern CSS framework that combines clean design,
-                    responsive layouts, and developer experience. Perfect for creating
-                    Notion-like interfaces and complex web applications.
-                </p>
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <div class="demo-hero">
+                <div>
+                    <span class="crafts-badge">CRAFTS · CLEAN · RESPONSIVE</span>
+                </div>
+                <div>
+                    <h1 class="text-4xl font-bold crafts-mb-0">Build Beautiful Interfaces Faster</h1>
+                    <p class="text-xl text-secondary leading-relaxed">
+                        CRAFTS is a semantic-first CSS framework inspired by Notion, Halfmoon, and Tailwind —
+                        so your HTML looks great immediately and scales to full dashboards without the bloat.
+                    </p>
+                </div>
+                <div class="hero-actions">
                     <button class="crafts-btn crafts-btn-xl">
                         <i data-lucide="rocket" class="crafts-icon"></i>
                         Get Started
                     </button>
                     <button class="crafts-btn crafts-btn-secondary crafts-btn-xl">
                         <i data-lucide="github" class="crafts-icon"></i>
-                        GitHub
+                        View on GitHub
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Features -->
     <section class="crafts-section">
         <div class="crafts-container">
-            <h2 class="text-3xl font-bold text-center" style="margin-bottom: 3rem;">Why Choose CRAFTS?</h2>
-
-            <div class="feature-grid">
-                <!-- Feature 1 -->
+            <div class="section-heading">
+                <h2 class="text-3xl font-bold">Why Choose CRAFTS?</h2>
+                <p class="text-secondary">Design tokens, semantic defaults, and a utility escape hatch.</p>
+            </div>
+            <div class="features-grid">
                 <div class="crafts-card crafts-card-shadow">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div
-                            style="padding: 0.75rem; background: color-mix(in srgb, var(--crafts-primary) 10%, transparent); border-radius: var(--crafts-radius-lg);">
-                            <i data-lucide="code-2" class="crafts-icon crafts-icon-primary"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold">Semantic HTML First</h3>
+                    <div class="card-heading">
+                        <i data-lucide="zap" class="crafts-icon crafts-icon-warning"></i>
+                        <span class="text-xl font-semibold">Fast & Light</span>
                     </div>
-                    <p class="text-secondary">
-                        Works beautifully with pure HTML. No complex class names needed for basic styling.
-                        Perfect for rapid prototyping and content-heavy websites.
-                    </p>
+                    <p class="text-secondary">Zero configuration by default with ≤15KB gzipped core bundle.</p>
                 </div>
-
-                <!-- Feature 2 -->
                 <div class="crafts-card crafts-card-shadow">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div
-                            style="padding: 0.75rem; background: color-mix(in srgb, var(--crafts-primary) 10%, transparent); border-radius: var(--crafts-radius-lg);">
-                            <i data-lucide="smartphone" class="crafts-icon crafts-icon-primary"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold">Mobile-First Responsive</h3>
+                    <div class="card-heading">
+                        <i data-lucide="smartphone" class="crafts-icon crafts-icon-primary"></i>
+                        <span class="text-xl font-semibold">Responsive</span>
                     </div>
-                    <p class="text-secondary">
-                        Built from the ground up to work perfectly on all devices and screen sizes.
-                        Responsive grid system and flexible components.
-                    </p>
+                    <p class="text-secondary">Container + grid utilities ensure layouts never touch the edges.</p>
                 </div>
-
-                <!-- Feature 3 -->
                 <div class="crafts-card crafts-card-shadow">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <div
-                            style="padding: 0.75rem; background: color-mix(in srgb, var(--crafts-primary) 10%, transparent); border-radius: var(--crafts-radius-lg);">
-                            <i data-lucide="palette" class="crafts-icon crafts-icon-primary"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold">Theme System</h3>
+                    <div class="card-heading">
+                        <i data-lucide="eye" class="crafts-icon crafts-icon-success"></i>
+                        <span class="text-xl font-semibold">Accessible</span>
                     </div>
-                    <p class="text-secondary">
-                        Light, dark, and auto modes with easy customization. Consistent design tokens
-                        and CSS variables for complete control.
-                    </p>
+                    <p class="text-secondary">WCAG contrast compliance and prefers-reduced-motion baked in.</p>
+                </div>
+                <div class="crafts-card crafts-card-shadow">
+                    <div class="card-heading">
+                        <i data-lucide="layers" class="crafts-icon"></i>
+                        <span class="text-xl font-semibold">Composable</span>
+                    </div>
+                    <p class="text-secondary">Mix semantic HTML defaults with utilities only when you need them.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Components Demo -->
-    <section class="crafts-section" style="background: var(--crafts-bg-secondary);">
+    <!-- Components -->
+    <section class="crafts-section crafts-section-alt">
         <div class="crafts-container">
-            <h2 class="text-3xl font-bold text-center" style="margin-bottom: 3rem;">Components & Styles</h2>
-
-            <div class="crafts-grid crafts-grid-2" style="gap: 3rem;">
-                <!-- Typography Section -->
+            <div class="section-heading">
+                <h2 class="text-3xl font-bold">Components & Styles</h2>
+                <p class="text-secondary">Typography, forms, badges, and layout primitives ready out of the box.</p>
+            </div>
+            <div class="components-grid">
                 <div class="crafts-card">
-                    <h3 class="text-2xl font-semibold" style="margin-bottom: 1.5rem;">Beautiful Typography</h3>
-
-                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-                        <div>
-                            <h1 class="text-3xl font-bold" style="margin-bottom: 0.5rem;">Heading 1</h1>
-                            <h2 class="text-2xl font-semibold" style="margin-bottom: 0.5rem;">Heading 2</h2>
-                            <h3 class="text-xl font-semibold" style="margin-bottom: 1rem;">Heading 3</h3>
-
-                            <p class="text-lg text-secondary" style="margin-bottom: 1rem;">
-                                This is a large paragraph with <strong>bold text</strong> and <em>italic emphasis</em>.
-                                Perfect for lead text and important content.
-                            </p>
-
-                            <p class="text-base text-secondary">
-                                Regular body text with comfortable line height and optimal readability.
-                                Supports <code class="font-mono"
-                                    style="background: var(--crafts-bg-secondary); padding: 0.2rem 0.4rem; border-radius: 0.25rem;">inline code</code>
-                                and <a href="#" style="color: var(--crafts-primary); text-decoration: none;">beautiful
-                                    links</a>.
-                            </p>
-                        </div>
-
-                        <div>
-                            <h4 class="text-lg font-semibold" style="margin-bottom: 1rem;">Font Variants</h4>
-                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                                <p class="font-sans text-secondary">Sans-serif system font (default)</p>
-                                <p class="font-serif text-secondary">Serif font for enhanced reading</p>
-                                <p class="font-mono text-secondary">Monospace for code and technical content</p>
-                            </div>
-                        </div>
+                    <h3 class="text-2xl font-semibold card-heading card-heading-spaced">
+                        <i data-lucide="type" class="crafts-icon"></i>
+                        Typography System
+                    </h3>
+                    <h1 class="text-3xl font-bold">Heading 1 · Display</h1>
+                    <h2 class="text-2xl font-semibold">Heading 2 · Section</h2>
+                    <p class="text-secondary">
+                        Paragraph text with <a href="#">links</a>, <strong>bold emphasis</strong>,
+                        <em>italic text</em>, and <code>inline code</code>. Designed for 65ch readability.
+                    </p>
+                    <div class="hero-actions">
+                        <span class="crafts-badge">Badge</span>
+                        <span class="crafts-badge crafts-badge-warning">Warning</span>
+                        <span class="crafts-badge crafts-badge-success">Success</span>
                     </div>
                 </div>
-
-                <!-- Forms Section -->
                 <div class="crafts-card">
-                    <h3 class="text-2xl font-semibold" style="margin-bottom: 1.5rem;">Elegant Forms</h3>
-
-                    <form style="display: flex; flex-direction: column; gap: 1.5rem;">
-                        <div class="crafts-form-group">
+                    <h3 class="text-2xl font-semibold card-heading card-heading-spaced">
+                        <i data-lucide="form-input" class="crafts-icon"></i>
+                        Beautiful Forms
+                    </h3>
+                    <form class="form-stack">
+                        <div>
                             <label class="crafts-form-label" for="name">Full Name</label>
-                            <input type="text" id="name" class="crafts-form-input" placeholder="Enter your full name">
+                            <input id="name" type="text" class="crafts-form-input" placeholder="Alex Example">
                         </div>
-
-                        <div class="crafts-form-group">
+                        <div>
                             <label class="crafts-form-label" for="email">Email Address</label>
-                            <input type="email" id="email" class="crafts-form-input"
-                                placeholder="your.email@example.com">
-                            <span class="crafts-form-help">We'll never share your email with anyone else.</span>
+                            <input id="email" type="email" class="crafts-form-input" placeholder="you@example.com">
+                            <span class="crafts-form-help">We never share your email with anyone else.</span>
                         </div>
-
-                        <div class="crafts-form-group">
-                            <label class="crafts-form-label" for="message">Your Message</label>
-                            <textarea id="message" class="crafts-form-input crafts-form-textarea"
-                                placeholder="Tell us about your project..." rows="4"></textarea>
+                        <div>
+                            <label class="crafts-form-label" for="message">Message</label>
+                            <textarea id="message" class="crafts-form-input crafts-form-textarea" rows="3"
+                                placeholder="Tell us about your project..."></textarea>
                         </div>
-
-                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                            <button type="submit" class="crafts-btn">
-                                <i data-lucide="send" class="crafts-icon"></i>
-                                Send Message
-                            </button>
-                            <button type="button" class="crafts-btn crafts-btn-secondary">
-                                Cancel
-                            </button>
+                        <div class="hero-actions">
+                            <button class="crafts-btn" type="submit">Send Message</button>
+                            <button class="crafts-btn crafts-btn-secondary" type="button">Save Draft</button>
                         </div>
                     </form>
                 </div>
@@ -263,47 +314,40 @@
         </div>
     </section>
 
+    <!-- CTA -->
+    <section class="crafts-section">
+        <div class="crafts-container">
+            <div class="crafts-card crafts-card-shadow">
+                <div class="demo-hero">
+                    <h2 class="text-3xl font-bold">Ready to craft interfaces?</h2>
+                    <p class="text-secondary">
+                        Install via npm, drop the semantic build into any HTML file, or cherry-pick modules.
+                        CRAFTS keeps your UI clean, responsive, and accessible with minimal effort.
+                    </p>
+                    <div class="cta-row">
+                        <code>npm install crafts-css</code>
+                        <code>&lt;link rel="stylesheet" href="crafts.css"&gt;</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="crafts-footer">
-        <div class="crafts-container">
-            <div class="crafts-footer-content">
-                <div class="crafts-footer-section">
-                    <h3>CRAFTS CSS</h3>
-                    <p>A modern CSS framework built with design tokens, semantic HTML, and accessibility in mind.</p>
-                </div>
-                <div class="crafts-footer-section">
-                    <h3>Resources</h3>
-                    <ul class="crafts-footer-links">
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">Components</a></li>
-                        <li><a href="#">Examples</a></li>
-                        <li><a href="#">GitHub</a></li>
-                    </ul>
-                </div>
-                <div class="crafts-footer-section">
-                    <h3>Community</h3>
-                    <ul class="crafts-footer-links">
-                        <li><a href="#">GitHub Issues</a></li>
-                        <li><a href="#">Discussions</a></li>
-                        <li><a href="#">Contributing</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="crafts-footer-bottom">
-                <p>&copy; 2024 CRAFTS CSS Framework. MIT Licensed. Built with ❤️ for the web.</p>
-            </div>
+        <div class="crafts-container footer-note">
+            <!--<p>© 2025 CRAFTS CSS. MIT Licensed. Built for thoughtful front-end teams.</p>-->
+            <p>&copy; 2025 CRAFTS CSS Framework. MIT Licensed. Built with ❤️ for the web.</p>
         </div>
     </footer>
 
     <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-
-        // Theme system with proper state management
         class CraftsTheme {
             constructor() {
-                this.themeToggle = document.getElementById('themeToggle');
+                this.toggle = document.getElementById('themeToggle');
                 this.themeOptions = document.querySelectorAll('.crafts-theme-option');
+                this.metaThemeColor = document.querySelector('meta[name="theme-color"]');
+                this.html = document.documentElement;
                 this.init();
             }
 
@@ -317,87 +361,84 @@
             }
 
             loadTheme() {
-                const savedTheme = localStorage.getItem('crafts-theme');
-                const systemTheme = this.getSystemTheme();
-
-                let theme = savedTheme || 'auto';
-
-                if (theme === 'auto') {
-                    theme = systemTheme;
-                }
-
-                this.applyTheme(theme);
-                this.updateToggleState(theme);
-                this.updateActiveOption(savedTheme || 'auto');
+                const savedTheme = localStorage.getItem('crafts-theme') || 'auto';
+                const resolved = savedTheme === 'auto' ? this.getSystemTheme() : savedTheme;
+                this.applyTheme(resolved);
+                this.updateToggle(resolved);
+                this.updateButtons(savedTheme);
             }
 
             applyTheme(theme) {
-                document.documentElement.setAttribute('data-theme', theme);
-
-                // Update meta theme-color for mobile browsers
-                const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-                if (metaThemeColor) {
-                    metaThemeColor.setAttribute('content', theme === 'dark' ? '#1a1a1a' : '#ffffff');
+                this.html.setAttribute('data-theme', theme);
+                if (this.metaThemeColor) {
+                    this.metaThemeColor.setAttribute('content', theme === 'dark' ? '#0d0d0d' : '#ffffff');
                 }
             }
 
-            updateToggleState(theme) {
-                if (this.themeToggle) {
-                    this.themeToggle.checked = theme === 'dark';
+            updateToggle(theme) {
+                if (this.toggle) {
+                    this.toggle.checked = theme === 'dark';
                 }
             }
 
-            updateActiveOption(theme) {
-                this.themeOptions.forEach(option => {
-                    option.classList.remove('active');
-                    if (option.getAttribute('data-theme') === theme) {
-                        option.classList.add('active');
-                    }
+            updateButtons(selectedTheme) {
+                this.themeOptions.forEach((btn) => {
+                    const isActive = btn.getAttribute('data-theme') === selectedTheme;
+                    btn.classList.toggle('active', isActive);
+                    btn.setAttribute('aria-pressed', isActive.toString());
                 });
             }
 
             bindEvents() {
-                // Toggle switch event
-                if (this.themeToggle) {
-                    this.themeToggle.addEventListener('change', (e) => {
-                        const theme = e.target.checked ? 'dark' : 'light';
-                        this.applyTheme(theme);
-                        localStorage.setItem('crafts-theme', theme);
-                        this.updateActiveOption(theme);
+                if (this.toggle) {
+                    this.toggle.addEventListener('change', (event) => {
+                        const newTheme = event.target.checked ? 'dark' : 'light';
+                        localStorage.setItem('crafts-theme', newTheme);
+                        this.applyTheme(newTheme);
+                        this.updateButtons(newTheme);
                     });
                 }
 
-                // Theme option buttons events
-                this.themeOptions.forEach(option => {
-                    option.addEventListener('click', (e) => {
-                        const theme = e.currentTarget.getAttribute('data-theme');
-                        this.applyTheme(theme === 'auto' ? this.getSystemTheme() : theme);
-                        localStorage.setItem('crafts-theme', theme);
-                        this.updateToggleState(theme === 'auto' ? this.getSystemTheme() : theme);
-                        this.updateActiveOption(theme);
+                this.themeOptions.forEach((button) => {
+                    button.addEventListener('click', () => {
+                        const themeChoice = button.getAttribute('data-theme');
+                        localStorage.setItem('crafts-theme', themeChoice);
+                        const resolved = themeChoice === 'auto' ? this.getSystemTheme() : themeChoice;
+                        this.applyTheme(resolved);
+                        this.updateToggle(resolved);
+                        this.updateButtons(themeChoice);
                     });
                 });
 
-                // Listen for system theme changes
-                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-                    const savedTheme = localStorage.getItem('crafts-theme');
-                    if (savedTheme === 'auto' || !savedTheme) {
-                        this.applyTheme(e.matches ? 'dark' : 'light');
-                        this.updateToggleState(e.matches ? 'dark' : 'light');
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+                    const savedTheme = localStorage.getItem('crafts-theme') || 'auto';
+                    if (savedTheme === 'auto') {
+                        const newTheme = event.matches ? 'dark' : 'light';
+                        this.applyTheme(newTheme);
+                        this.updateToggle(newTheme);
+                        this.updateButtons('auto');
                     }
                 });
             }
         }
 
-        // Initialize theme system when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            new CraftsTheme();
-        });
+        function initNavToggle() {
+            const navToggle = document.getElementById('navToggle');
+            const navLinks = document.querySelector('.crafts-nav-links');
 
-        // Mobile menu toggle
-        document.getElementById('navToggle')?.addEventListener('click', () => {
-            document.querySelector('.crafts-nav-links').classList.toggle('show');
+            navToggle?.addEventListener('click', () => {
+                const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+                navToggle.setAttribute('aria-expanded', (!isExpanded).toString());
+                navLinks?.classList.toggle('show');
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            new CraftsTheme();
+            initNavToggle();
         });
     </script>
+</body>
 
 </html>

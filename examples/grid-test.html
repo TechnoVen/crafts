@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRAFTS Grid System Test</title>
+    <link rel="stylesheet" href="../dist/crafts.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        /* Dark theme styling for grid items */
+        .grid-demo>div {
+            background: color-mix(in srgb, var(--crafts-primary) 10%, var(--crafts-bg));
+            padding: var(--crafts-space-md);
+            border-radius: var(--crafts-radius-md);
+            border: 1px solid color-mix(in srgb, var(--crafts-primary) 30%, var(--crafts-border-color));
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 500;
+            color: var(--crafts-text);
+        }
+
+        /* Dark code examples */
+        .code-example {
+            background: var(--crafts-bg-secondary);
+            border: 1px solid var(--crafts-border-color);
+            border-radius: var(--crafts-radius-md);
+            padding: var(--crafts-space-md);
+            margin: var(--crafts-space-md) 0;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.85em;
+            overflow-x: auto;
+            color: var(--crafts-text);
+        }
+
+        .section-title {
+            border-bottom: 2px solid var(--crafts-primary);
+            padding-bottom: var(--crafts-space-sm);
+            margin-bottom: var(--crafts-space-lg);
+            color: var(--crafts-heading);
+        }
+
+        .example-section {
+            margin-bottom: var(--crafts-space-2xl);
+            padding: var(--crafts-space-lg);
+            border: 1px solid var(--crafts-border-color);
+            border-radius: var(--crafts-radius-lg);
+            background: var(--crafts-bg);
+        }
+
+        .feature-badge {
+            display: inline-block;
+            background: var(--crafts-primary);
+            color: white;
+            padding: var(--crafts-space-xs) var(--crafts-space-sm);
+            border-radius: var(--crafts-radius-sm);
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-right: var(--crafts-space-sm);
+        }
+
+        .grid-visual-guide {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--crafts-space-sm);
+            margin: var(--crafts-space-lg) 0;
+            padding: var(--crafts-space-sm);
+            background: var(--crafts-bg-secondary);
+            border-radius: var(--crafts-radius-md);
+        }
+
+        .grid-column {
+            background: color-mix(in srgb, var(--crafts-primary) 15%, var(--crafts-bg));
+            height: 20px;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7em;
+            color: var(--crafts-text);
+            font-weight: 600;
+        }
+
+        /* Ensure proper contrast */
+        body {
+            background: var(--crafts-bg);
+            color: var(--crafts-text);
+        }
+    </style>
+</head>
+
+<body class="crafts-page">
+    <div class="crafts-container">
+        <header style="text-align: center; margin: var(--crafts-space-2xl) 0;">
+            <h1 style="color: var(--crafts-primary); margin-bottom: var(--crafts-space-sm);">CRAFTS Grid System</h1>
+            <p class="crafts-text-lg" style="color: var(--crafts-text-secondary); max-width: 600px; margin: 0 auto;">
+                A modern, mobile-first grid system built with CSS Grid. Clean, flexible, and production-ready.
+            </p>
+        </header>
+
+        <!-- 12-Column Visual Guide -->
+        <section class="example-section">
+            <h2 class="section-title">12-Column Grid Structure</h2>
+            <p>Our grid is built on a familiar 12-column system using modern CSS Grid.</p>
+
+            <div class="grid-visual-guide">
+                <div class="grid-column">1</div>
+                <div class="grid-column">2</div>
+                <div class="grid-column">3</div>
+                <div class="grid-column">4</div>
+                <div class="grid-column">5</div>
+                <div class="grid-column">6</div>
+                <div class="grid-column">7</div>
+                <div class="grid-column">8</div>
+                <div class="grid-column">9</div>
+                <div class="grid-column">10</div>
+                <div class="grid-column">11</div>
+                <div class="grid-column">12</div>
+            </div>
+        </section>
+
+        <!-- Auto-layout Grid -->
+        <section class="example-section">
+            <h2 class="section-title">
+                <span class="feature-badge">Auto-layout</span>
+                Equal Width Columns
+            </h2>
+            <p>Columns automatically distribute space evenly. Perfect for card layouts and content grids.</p>
+
+            <div class="crafts-grid-auto grid-demo">
+                <div>Auto Column</div>
+                <div>Auto Column</div>
+                <div>Auto Column</div>
+                <div>Auto Column</div>
+            </div>
+
+            <div class="code-example">
+                &lt;div class="crafts-grid-auto"&gt;
+                &lt;div&gt;Auto Column&lt;/div&gt;
+                &lt;div&gt;Auto Column&lt;/div&gt;
+                &lt;div&gt;Auto Column&lt;/div&gt;
+                &lt;div&gt;Auto Column&lt;/div&gt;
+                &lt;/div&gt;
+            </div>
+        </section>
+
+        <!-- Responsive Grid -->
+        <section class="example-section">
+            <h2 class="section-title">
+                <span class="feature-badge">Responsive</span>
+                Mobile-First Grid
+            </h2>
+            <p>Stack on mobile, adapt on tablet, spread on desktop. Built mobile-first.</p>
+
+            <div class="crafts-grid crafts-gap-md grid-demo">
+                <div class="crafts-col-12 crafts-col-md-6 crafts-col-lg-3">Full → Half → Quarter</div>
+                <div class="crafts-col-12 crafts-col-md-6 crafts-col-lg-3">Full → Half → Quarter</div>
+                <div class="crafts-col-12 crafts-col-md-6 crafts-col-lg-3">Full → Half → Quarter</div>
+                <div class="crafts-col-12 crafts-col-md-6 crafts-col-lg-3">Full → Half → Quarter</div>
+            </div>
+
+            <div class="code-example">
+                &lt;div class="crafts-grid crafts-gap-md"&gt;
+                &lt;div class="crafts-col-12 crafts-col-md-6 crafts-col-lg-3"&gt;.col-12 .col-md-6 .col-lg-3&lt;/div&gt;
+                &lt;div class="crafts-col-12 crafts-col-md-6 crafts-col-lg-3"&gt;.col-12 .col-md-6 .col-lg-3&lt;/div&gt;
+                &lt;div class="crafts-col-12 crafts-col-md-6 crafts-col-lg-3"&gt;.col-12 .col-md-6 .col-lg-3&lt;/div&gt;
+                &lt;div class="crafts-col-12 crafts-col-md-6 crafts-col-lg-3"&gt;.col-12 .col-md-6 .col-lg-3&lt;/div&gt;
+                &lt;/div&gt;
+            </div>
+        </section>
+
+        <!-- Mixed Layout -->
+        <section class="example-section">
+            <h2 class="section-title">Mixed Column Layouts</h2>
+            <p>Combine different column sizes for custom layouts.</p>
+
+            <div class="crafts-grid crafts-gap-md grid-demo">
+                <div class="crafts-col-12 crafts-col-md-8">Main Content (8 columns)</div>
+                <div class="crafts-col-12 crafts-col-md-4">Sidebar (4 columns)</div>
+            </div>
+
+            <div class="code-example">
+                &lt;div class="crafts-grid crafts-gap-md"&gt;
+                &lt;div class="crafts-col-12 crafts-col-md-8"&gt;Main Content&lt;/div&gt;
+                &lt;div class="crafts-col-12 crafts-col-md-4"&gt;Sidebar&lt;/div&gt;
+                &lt;/div&gt;
+            </div>
+        </section>
+
+        <!-- Rest of your grid-test.html content continues here... -->
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
