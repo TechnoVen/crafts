@@ -13,7 +13,7 @@ This living roadmap tracks everything that has already shipped, what is being ac
 
 ## 🔧 In Progress / Near-Term
 
-- [ ] Polish `craftcss_homepage` by replacing remaining inline styles with framework classes.
+- [ ] DRY homepage/examples: replace remaining inline styles with utilities/components and rebuild `dist/`.
 - [ ] Document stack & cluster utilities inside `docs/` with runnable examples.
 - [ ] Add Subresource Integrity hashes to all external scripts (lucide) across examples.
 - [ ] Extend `agents/INITIAL_PLAN_OF_CSS_FRAMEWORK.md` with Claude’s latest planning notes.
@@ -27,6 +27,13 @@ This living roadmap tracks everything that has already shipped, what is being ac
 3. [ ] Publish icon/font guidance plus theme/utility strategy in `docs/`.
 4. [ ] Expand the documentation site with release notes, screenshots, and usage recipes.
 5. [ ] Keep logging architectural decisions inside `agents/` so contributors can follow the rationale.
+
+## 🛠️ Current Dev Checklist (tactical)
+
+- [x] Refactor `craftcss_homepage/index.html` to use shared utilities: nav actions, hero chips, CTA rows, feature list, code preview, footer text.
+- [x] Promote repeated inline patterns (flex gaps, badge chip, list reset, code pre styles) into reusable utilities or `style.css`.
+- [x] Add missing utility shorthands (gap, padding-top) to `src/utilities/_utils.css` and rebuild `dist/`.
+- [ ] Re-run `node build.js` after utility changes; smoke-test `examples/basic.html` and homepage light/dark.
 
 ## 📌 Notes
 

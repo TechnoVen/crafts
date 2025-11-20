@@ -1,4 +1,4 @@
-/*! CRAFTS CSS v1.0.0 - 2025-11-19 */
+/*! CRAFTS CSS v1.0.0 - 2025-11-20 */
 /*! https://github.com/TechnoVen/crafts */
 
 
@@ -2216,11 +2216,541 @@ body {
   }
 }
 
+/* ===== COMMON LAYOUT PATTERNS ===== */
+
+/* Hero section pattern */
+.crafts-hero {
+  padding: var(--crafts-space-2xl) 0;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--crafts-primary) 8%, transparent) 0%,
+    color-mix(in srgb, var(--crafts-primary) 4%, transparent) 100%
+  );
+  border-bottom: 1px solid var(--crafts-border-color);
+}
+
+.crafts-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Feature grid pattern */
+.crafts-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--crafts-space-xl);
+}
+
+/* Card grid pattern */
+.crafts-card-grid {
+  display: grid;
+  gap: var(--crafts-space-lg);
+}
+
+.crafts-card-grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.crafts-card-grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* CTA section pattern */
+.crafts-cta {
+  padding: var(--crafts-space-2xl) 0;
+  text-align: center;
+  background: var(--crafts-bg-secondary);
+  border-top: 1px solid var(--crafts-border-color);
+  border-bottom: 1px solid var(--crafts-border-color);
+}
+
+/* Demo section pattern */
+.crafts-demo-section {
+  padding: var(--crafts-space-xl) 0;
+  background: var(--crafts-bg-secondary);
+}
+
+.crafts-demo-section:nth-child(even) {
+  background: var(--crafts-bg-primary);
+}
+
 
 /* === _utils.css === */
 
+/*
+ * CRAFTS Utility Classes
+ * Comprehensive utility system inspired by Tailwind
+ * Eliminates need for inline styles and ad-hoc CSS
+ */
+
+/* ===== FLEXBOX UTILITIES ===== */
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+/* Flex alignment */
+.items-start {
+  align-items: flex-start;
+}
+.items-center {
+  align-items: center;
+}
+.items-end {
+  align-items: flex-end;
+}
+.items-stretch {
+  align-items: stretch;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
+}
+
+/* Flex child utilities */
+.flex-1 {
+  flex: 1 1 0%;
+}
+.flex-auto {
+  flex: 1 1 auto;
+}
+.flex-none {
+  flex: none;
+}
+
+/* ===== GRID UTILITIES ===== */
+.grid {
+  display: grid;
+}
+.grid-cols-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Grid alignment */
+.place-items-center {
+  place-items: center;
+}
+.place-content-center {
+  place-content: center;
+}
+
+/* ===== SPACING UTILITIES ===== */
+/* Margin */
+.m-0 {
+  margin: 0;
+}
+.m-1 {
+  margin: var(--crafts-space-xs);
+}
+.m-2 {
+  margin: var(--crafts-space-sm);
+}
+.m-3 {
+  margin: var(--crafts-space-md);
+}
+.m-4 {
+  margin: var(--crafts-space-lg);
+}
+.m-5 {
+  margin: var(--crafts-space-xl);
+}
+
+.mt-1 {
+  margin-top: var(--crafts-space-xs);
+}
+.mt-2 {
+  margin-top: var(--crafts-space-sm);
+}
+.mt-3 {
+  margin-top: var(--crafts-space-md);
+}
+.mt-4 {
+  margin-top: var(--crafts-space-lg);
+}
+.mt-5 {
+  margin-top: var(--crafts-space-xl);
+}
+
+.mb-1 {
+  margin-bottom: var(--crafts-space-xs);
+}
+.mb-2 {
+  margin-bottom: var(--crafts-space-sm);
+}
+.mb-3 {
+  margin-bottom: var(--crafts-space-md);
+}
+.mb-4 {
+  margin-bottom: var(--crafts-space-lg);
+}
+.mb-5 {
+  margin-bottom: var(--crafts-space-xl);
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Padding */
+.p-0 {
+  padding: 0;
+}
+.p-1 {
+  padding: var(--crafts-space-xs);
+}
+.p-2 {
+  padding: var(--crafts-space-sm);
+}
+.p-3 {
+  padding: var(--crafts-space-md);
+}
+.p-4 {
+  padding: var(--crafts-space-lg);
+}
+.p-5 {
+  padding: var(--crafts-space-xl);
+}
+
+.px-1 {
+  padding-left: var(--crafts-space-xs);
+  padding-right: var(--crafts-space-xs);
+}
+.px-2 {
+  padding-left: var(--crafts-space-sm);
+  padding-right: var(--crafts-space-sm);
+}
+.px-3 {
+  padding-left: var(--crafts-space-md);
+  padding-right: var(--crafts-space-md);
+}
+.px-4 {
+  padding-left: var(--crafts-space-lg);
+  padding-right: var(--crafts-space-lg);
+}
+
+.py-1 {
+  padding-top: var(--crafts-space-xs);
+  padding-bottom: var(--crafts-space-xs);
+}
+.py-2 {
+  padding-top: var(--crafts-space-sm);
+  padding-bottom: var(--crafts-space-sm);
+}
+.py-3 {
+  padding-top: var(--crafts-space-md);
+  padding-bottom: var(--crafts-space-md);
+}
+.py-4 {
+  padding-top: var(--crafts-space-lg);
+  padding-bottom: var(--crafts-space-lg);
+}
+
+.pt-1 {
+  padding-top: var(--crafts-space-xs);
+}
+.pt-2 {
+  padding-top: var(--crafts-space-sm);
+}
+.pt-3 {
+  padding-top: var(--crafts-space-md);
+}
+.pt-4 {
+  padding-top: var(--crafts-space-lg);
+}
+.pt-5 {
+  padding-top: var(--crafts-space-xl);
+}
+
+.gap-1 {
+  gap: var(--crafts-space-xs);
+}
+.gap-2 {
+  gap: var(--crafts-space-sm);
+}
+.gap-3 {
+  gap: var(--crafts-space-md);
+}
+.gap-4 {
+  gap: var(--crafts-space-lg);
+}
+/* ===== TEXT UTILITIES ===== */
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+.font-light {
+  font-weight: 300;
+}
+.font-normal {
+  font-weight: 400;
+}
+.font-medium {
+  font-weight: 500;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.font-bold {
+  font-weight: 700;
+}
+
+.leading-tight {
+  line-height: 1.25;
+}
+.leading-normal {
+  line-height: 1.5;
+}
+.leading-relaxed {
+  line-height: 1.75;
+}
+
+/* ===== WIDTH & HEIGHT UTILITIES ===== */
+.w-full {
+  width: 100%;
+}
+.w-auto {
+  width: auto;
+}
+.w-max {
+  width: max-content;
+}
+.w-min {
+  width: min-content;
+}
+
+.h-full {
+  height: 100%;
+}
+.h-auto {
+  height: auto;
+}
+.h-screen {
+  height: 100vh;
+}
+
+.max-w-sm {
+  max-width: 24rem;
+}
+.max-w-md {
+  max-width: 28rem;
+}
+.max-w-lg {
+  max-width: 32rem;
+}
+.max-w-xl {
+  max-width: 36rem;
+}
+.max-w-2xl {
+  max-width: 42rem;
+}
+.max-w-4xl {
+  max-width: 56rem;
+}
+.max-w-6xl {
+  max-width: 72rem;
+}
+
+/* ===== LAYOUT PATTERNS ===== */
+/* Stack layout (vertical) */
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+.stack-1 > * + * {
+  margin-top: var(--crafts-space-xs);
+}
+.stack-2 > * + * {
+  margin-top: var(--crafts-space-sm);
+}
+.stack-3 > * + * {
+  margin-top: var(--crafts-space-md);
+}
+.stack-4 > * + * {
+  margin-top: var(--crafts-space-lg);
+}
+
+/* Cluster layout (horizontal) */
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--crafts-space-md);
+}
+.cluster-1 {
+  gap: var(--crafts-space-xs);
+}
+.cluster-2 {
+  gap: var(--crafts-space-sm);
+}
+.cluster-3 {
+  gap: var(--crafts-space-md);
+}
+.cluster-4 {
+  gap: var(--crafts-space-lg);
+}
+
+/* Center layout */
+.center {
+  display: grid;
+  place-items: center;
+}
+
+/* Sidebar layout */
+.with-sidebar {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--crafts-space-lg);
+}
+@media (min-width: 768px) {
+  .with-sidebar {
+    grid-template-columns: 250px 1fr;
+  }
+}
+
+/* ===== VISIBILITY UTILITIES ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.visible {
+  visibility: visible;
+}
+.invisible {
+  visibility: hidden;
+}
+
+/* ===== RESPONSIVE UTILITIES ===== */
+@media (min-width: 768px) {
+  .md\\:flex {
+    display: flex;
+  }
+  .md\\:grid {
+    display: grid;
+  }
+  .md\\:hidden {
+    display: none;
+  }
+  .md\\:flex-row {
+    flex-direction: row;
+  }
+  .md\\:text-left {
+    text-align: left;
+  }
+  .md\\:text-center {
+    text-align: center;
+  }
+}
 
 
 /* === _themes.css === */
 
+
+
+/* === _badges.css === */
+
+/*
+ * CRAFTS Badge Components
+ * Reusable badge styles for labels, status, and tags
+ */
+
+.crafts-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--crafts-space-xs);
+  padding: var(--crafts-space-xs) var(--crafts-space-sm);
+  font-size: var(--crafts-text-sm);
+  font-weight: var(--crafts-font-weight-medium);
+  border-radius: var(--crafts-radius-full);
+  border: 1px solid transparent;
+  line-height: 1;
+}
+
+/* Badge variants */
+.crafts-badge-primary {
+  background: color-mix(in srgb, var(--crafts-primary) 10%, transparent);
+  color: var(--crafts-primary);
+  border-color: color-mix(in srgb, var(--crafts-primary) 20%, transparent);
+}
+
+.crafts-badge-secondary {
+  background: var(--crafts-bg-secondary);
+  color: var(--crafts-text-secondary);
+  border-color: var(--crafts-border-color);
+}
+
+.crafts-badge-success {
+  background: color-mix(in srgb, var(--crafts-success) 10%, transparent);
+  color: var(--crafts-success);
+  border-color: color-mix(in srgb, var(--crafts-success) 20%, transparent);
+}
+
+.crafts-badge-warning {
+  background: color-mix(in srgb, var(--crafts-warning) 10%, transparent);
+  color: var(--crafts-warning);
+  border-color: color-mix(in srgb, var(--crafts-warning) 20%, transparent);
+}
+
+.crafts-badge-error {
+  background: color-mix(in srgb, var(--crafts-error) 10%, transparent);
+  color: var(--crafts-error);
+  border-color: color-mix(in srgb, var(--crafts-error) 20%, transparent);
+}
+
+/* Badge sizes */
+.crafts-badge-sm {
+  padding: calc(var(--crafts-space-xs) / 2) var(--crafts-space-xs);
+  font-size: var(--crafts-text-xs);
+}
+
+.crafts-badge-lg {
+  padding: var(--crafts-space-sm) var(--crafts-space-md);
+  font-size: var(--crafts-text-base);
+}
 

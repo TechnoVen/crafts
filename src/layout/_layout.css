@@ -328,3 +328,62 @@
     padding-right: max(var(--crafts-space-md), env(safe-area-inset-right));
   }
 }
+
+/* ===== COMMON LAYOUT PATTERNS ===== */
+
+/* Hero section pattern */
+.crafts-hero {
+  padding: var(--crafts-space-2xl) 0;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--crafts-primary) 8%, transparent) 0%,
+    color-mix(in srgb, var(--crafts-primary) 4%, transparent) 100%
+  );
+  border-bottom: 1px solid var(--crafts-border-color);
+}
+
+.crafts-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Feature grid pattern */
+.crafts-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--crafts-space-xl);
+}
+
+/* Card grid pattern */
+.crafts-card-grid {
+  display: grid;
+  gap: var(--crafts-space-lg);
+}
+
+.crafts-card-grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.crafts-card-grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* CTA section pattern */
+.crafts-cta {
+  padding: var(--crafts-space-2xl) 0;
+  text-align: center;
+  background: var(--crafts-bg-secondary);
+  border-top: 1px solid var(--crafts-border-color);
+  border-bottom: 1px solid var(--crafts-border-color);
+}
+
+/* Demo section pattern */
+.crafts-demo-section {
+  padding: var(--crafts-space-xl) 0;
+  background: var(--crafts-bg-secondary);
+}
+
+.crafts-demo-section:nth-child(even) {
+  background: var(--crafts-bg-primary);
+}

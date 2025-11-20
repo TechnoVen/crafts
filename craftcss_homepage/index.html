@@ -29,8 +29,8 @@
                 <li><a href="#examples" class="crafts-nav-link">Examples</a></li>
             </ul>
 
-            <div class="crafts-nav-actions" style="display: flex; gap: 0.75rem; align-items: center;">
-                <label class="crafts-theme-toggle" title="Toggle theme" style="margin-right: 0.5rem;">
+            <div class="crafts-nav-actions nav-actions-inline">
+                <label class="crafts-theme-toggle nav-toggle-margin" title="Toggle theme">
                     <input type="checkbox" id="themeToggle">
                     <div class="crafts-theme-toggle-track">
                         <div class="crafts-theme-toggle-knob">
@@ -55,11 +55,8 @@
 
     <header class="hero-section">
         <div class="crafts-container">
-            <div class="hero-badge" style="margin-bottom: 1rem;">
-                <span
-                    style="background: var(--crafts-bg-secondary); padding: 0.25rem 0.75rem; border-radius: 2rem; font-size: 0.875rem; border: 1px solid var(--crafts-border-color);">
-                    New: v1.0 is now available 🎉
-                </span>
+            <div class="hero-badge">
+                <span class="hero-chip">New: v1.0 is now available 🎉</span>
             </div>
             <h1 class="hero-title">Zero-Config Beauty for<br>Semantic HTML</h1>
             <p class="hero-subtitle">
@@ -67,7 +64,7 @@
                 Clean. Responsive. Accessible. Flexible. Typographic. Semantic.
             </p>
 
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <div class="hero-actions">
                 <button class="crafts-btn crafts-btn-lg">
                     <i data-lucide="rocket" class="crafts-icon"></i>
                     Get Started
@@ -80,11 +77,11 @@
         </div>
     </header>
 
-    <main class="crafts-container" style="padding-top: 2rem;">
+    <main class="crafts-container pt-4">
 
         <section class="crafts-grid crafts-grid-3">
             <div class="crafts-card feature-card">
-                <div style="margin-bottom: 1rem; color: var(--crafts-primary);">
+                <div class="feature-icon text-primary">
                     <i data-lucide="feather" class="crafts-icon crafts-icon-lg"></i>
                 </div>
                 <h3 class="text-xl font-bold">Lightweight</h3>
@@ -93,7 +90,7 @@
                 </p>
             </div>
             <div class="crafts-card feature-card">
-                <div style="margin-bottom: 1rem; color: var(--crafts-success);">
+                <div class="feature-icon text-success">
                     <i data-lucide="smartphone" class="crafts-icon crafts-icon-lg"></i>
                 </div>
                 <h3 class="text-xl font-bold">Responsive</h3>
@@ -102,7 +99,7 @@
                 </p>
             </div>
             <div class="crafts-card feature-card">
-                <div style="margin-bottom: 1rem; color: var(--crafts-warning);">
+                <div class="feature-icon text-warning">
                     <i data-lucide="moon" class="crafts-icon crafts-icon-lg"></i>
                 </div>
                 <h3 class="text-xl font-bold">Dark Mode</h3>
@@ -113,27 +110,27 @@
         </section>
 
         <section class="code-preview">
-            <div class="crafts-grid crafts-grid-2" style="align-items: center;">
+            <div class="crafts-grid crafts-grid-2 items-center">
                 <div>
-                    <h2 class="text-2xl font-bold" style="margin-bottom: 1rem;">Write HTML. Get Design.</h2>
-                    <p class="text-secondary" style="margin-bottom: 1.5rem;">
+                    <h2 class="text-2xl font-bold mb-3">Write HTML. Get Design.</h2>
+                    <p class="text-secondary mb-4">
                         CRAFTS targets standard HTML tags. You don't need to learn a thousand utility classes just to
                         style a paragraph or a button.
                     </p>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                    <ul class="code-preview-list">
+                        <li>
                             <i data-lucide="check" class="crafts-icon crafts-icon-success"></i> Semantic syntax
                         </li>
-                        <li style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <li>
                             <i data-lucide="check" class="crafts-icon crafts-icon-success"></i> Accessible defaults
                         </li>
-                        <li style="display: flex; gap: 0.5rem;">
+                        <li>
                             <i data-lucide="check" class="crafts-icon crafts-icon-success"></i> No build step required
                         </li>
                     </ul>
                 </div>
-                <div class="crafts-card crafts-card-flat" style="font-size: 0.9rem;">
-                    <pre style="margin: 0; background: transparent; padding: 0;"><code>&lt;nav class="crafts-nav"&gt;
+                <div class="crafts-card crafts-card-flat">
+                    <pre class="code-pre-plain"><code>&lt;nav class="crafts-nav"&gt;
   &lt;a href="#" class="logo"&gt;Brand&lt;/a&gt;
 &lt;/nav&gt;
 
@@ -150,7 +147,7 @@
         <div class="crafts-container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="crafts-logo" style="margin-bottom: 1rem; display: inline-block;">
+                    <a href="#" class="crafts-logo footer-logo">
                         <i data-lucide="box" class="crafts-icon"></i> CRAFTS
                     </a>
                     <p class="text-secondary">
@@ -176,11 +173,10 @@
             </div>
 
             <div class="footer-bottom">
-                <p style="margin-top: 0.25rem;">
+                <p class="footer-note">
                     Code licensed <a href="https://github.com/TechnoVen/crafts/blob/main/LICENSE">MIT</a>,
                     docs <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, Currently v1.0.0.
                 </p>
-                <!--p style="margin-top: 0.25rem;">Currently v1.0.0.</p-->
             </div>
         </div>
     </footer>

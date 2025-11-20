@@ -27,7 +27,8 @@ const fullFiles = [
   'src/layout/_grid.css',
   'src/layout/_layout.css',
   'src/utilities/_utils.css',
-  'src/utilities/_themes.css'
+  'src/utilities/_themes.css',
+  'src/components/_badges.css'
 ];
 
 function buildCSS(files, outputPath) {

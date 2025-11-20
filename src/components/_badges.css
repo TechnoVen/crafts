@@ -1,0 +1,58 @@
+/*
+ * CRAFTS Badge Components
+ * Reusable badge styles for labels, status, and tags
+ */
+
+.crafts-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--crafts-space-xs);
+  padding: var(--crafts-space-xs) var(--crafts-space-sm);
+  font-size: var(--crafts-text-sm);
+  font-weight: var(--crafts-font-weight-medium);
+  border-radius: var(--crafts-radius-full);
+  border: 1px solid transparent;
+  line-height: 1;
+}
+
+/* Badge variants */
+.crafts-badge-primary {
+  background: color-mix(in srgb, var(--crafts-primary) 10%, transparent);
+  color: var(--crafts-primary);
+  border-color: color-mix(in srgb, var(--crafts-primary) 20%, transparent);
+}
+
+.crafts-badge-secondary {
+  background: var(--crafts-bg-secondary);
+  color: var(--crafts-text-secondary);
+  border-color: var(--crafts-border-color);
+}
+
+.crafts-badge-success {
+  background: color-mix(in srgb, var(--crafts-success) 10%, transparent);
+  color: var(--crafts-success);
+  border-color: color-mix(in srgb, var(--crafts-success) 20%, transparent);
+}
+
+.crafts-badge-warning {
+  background: color-mix(in srgb, var(--crafts-warning) 10%, transparent);
+  color: var(--crafts-warning);
+  border-color: color-mix(in srgb, var(--crafts-warning) 20%, transparent);
+}
+
+.crafts-badge-error {
+  background: color-mix(in srgb, var(--crafts-error) 10%, transparent);
+  color: var(--crafts-error);
+  border-color: color-mix(in srgb, var(--crafts-error) 20%, transparent);
+}
+
+/* Badge sizes */
+.crafts-badge-sm {
+  padding: calc(var(--crafts-space-xs) / 2) var(--crafts-space-xs);
+  font-size: var(--crafts-text-xs);
+}
+
+.crafts-badge-lg {
+  padding: var(--crafts-space-sm) var(--crafts-space-md);
+  font-size: var(--crafts-text-base);
+}

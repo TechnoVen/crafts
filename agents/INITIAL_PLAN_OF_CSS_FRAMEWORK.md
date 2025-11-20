@@ -9206,3 +9206,214 @@ node build.js
 # Test the container behavior
 open examples/container-test.html
 ```
+
+---
+
+## Claude's Planning Session & Implementation Notes (November 2025)
+
+### Overview
+This section documents the comprehensive planning and initial implementation work conducted by Claude in November 2025, building upon the competitive analysis and initial framework concepts outlined earlier in this document.
+
+### Planning Objectives
+1. **Review & Synthesize**: Analyze the competitive landscape research and extract actionable insights for CRAFTS CSS
+2. **Source Audit**: Conduct a thorough audit of existing codebase against the roadmap
+3. **Gap Analysis**: Identify missing components, utilities, and documentation needs
+4. **Implementation Planning**: Create detailed build orders and prioritization for next development phases
+
+### Key Decisions & Insights
+
+#### 1. Competitive Framework Analysis Synthesis
+From the extensive review of Bootstrap alternatives (Tailwind, Bulma, Materialize, Foundation, Pure CSS, Element, Skeleton, Metro UI, Powertocss, Spectre.css), Claude identified core guardrails for CRAFTS:
+
+- **Semantic-first beauty**: Raw HTML should look finished without class overload (avoiding Tailwind's "class soup" while preserving utility flexibility)
+- **Bundle discipline**: Maintain ≤15 KB gzipped semantic build, ≤25 KB full bundle
+- **Accessible theming**: Dual themes, contrast safety, reduced-motion respect, future RTL hooks
+- **JS-free interactions**: Dropdowns, tabs, modals must work with CSS + progressive enhancement
+- **Docs transparency**: High-quality guides and public milestones prevent confusion
+
+#### 2. Source Code Audit Results
+Comprehensive audit revealed:
+
+**Completed ✅**:
+- `src/core/_variables.css`: Full token set with dual themes + complexity switch
+- `src/core/_semantic.css`: Comprehensive typography/forms/table styling
+- `src/layout/_layout.css`: Container + section system, sidebar scaffold
+- `src/layout/_grid.css`: Detailed CSS Grid system with breakpoints
+- Component modules: Buttons, cards, forms, navbar, footer, icons all implemented
+
+**Issues Identified ⚠️**:
+- `src/core/_reset.css`: Referenced undefined `--crafts-line-height` token
+- `src/components/_components.css`: Empty placeholder needing shared primitives
+- Theme toggle/switcher: CSS present but no JS controller for persistence
+- `src/crafts.css`: Empty file, unclear role in build process
+
+**Missing ❌**:
+- JS-free interactive components (dropdowns, tabs, accordions, modals, tooltips)
+- `src/utilities/_utils.css` and `_themes.css`: Empty shells needing implementation
+- Comprehensive documentation structure
+- Example coverage for new utilities
+
+#### 3. Implementation Priorities Established
+
+**Immediate Actions** (Completed):
+1. ✅ Fix undefined token reference in `_reset.css` → `--crafts-line-height-normal`
+2. ✅ Add stack/cluster utilities to `_layout.css` (`.crafts-stack-*`, `.crafts-cluster-*` with alignment/justification variants)
+
+**Next Phase** (Planned):
+1. **Layout Polish**: Complete stack/cluster utilities, verify grid API consistency
+2. **Navigation Scaffolding**: Update examples to demonstrate navbar/sidebar usage
+3. **JS-free Interactive Set**: Implement dropdown, tabs, accordion, modal, tooltip patterns
+4. **Theme System Overhaul**: Build `crafts-theme.js` controller for theme persistence
+5. **Utility Helpers**: Populate `_utils.css`/`_themes.css` with spacing/color/type utilities
+
+### Implementation Progress
+
+#### Completed Work (November 2025)
+
+**1. Token System Fix**
+- **File**: `src/core/_reset.css`
+- **Change**: Updated `line-height: var(--crafts-line-height)` → `line-height: var(--crafts-line-height-normal)`
+- **Impact**: Resolves undefined token reference, ensures proper typography baseline
+
+**2. Stack & Cluster Utilities**
+- **File**: `src/layout/_layout.css`
+- **Additions**:
+  - Stack utilities: `.crafts-stack`, `.crafts-stack-xs`, `.crafts-stack-sm`, `.crafts-stack-md`, `.crafts-stack-lg`, `.crafts-stack-xl`, `.crafts-stack-2xl`
+  - Cluster utilities: `.crafts-cluster` with size variants (xs, sm, md, lg, xl)
+  - Alignment variants: `.crafts-cluster-start`, `.crafts-cluster-center`, `.crafts-cluster-end`, `.crafts-cluster-stretch`
+  - Justification variants: `.crafts-cluster-justify-start`, `.crafts-cluster-justify-center`, `.crafts-cluster-justify-end`, `.crafts-cluster-justify-between`, `.crafts-cluster-justify-around`, `.crafts-cluster-justify-evenly`
+- **Inspiration**: Every Layout's stack pattern, Halfmoon's layout primitives
+- **Impact**: Provides flexible vertical/horizontal spacing system for content organization
+
+**3. Documentation Updates**
+- **File**: `agents/CRAFTS-framework-overview.md`
+- **Updates**:
+  - Added "Source Audit (Nov 2025)" section with comprehensive status table
+  - Added "Competitive Landscape" section synthesizing framework comparisons
+  - Added "Theme & Utility Plan" with detailed implementation roadmap
+  - Added "Documentation & Examples Plan" with structure and workflow
+  - Updated action items with completion status
+  - Added "Detailed build order (layout + components)" section
+
+### Build Verification
+
+**Build Output** (Post-implementation):
+- `dist/crafts-semantic.css`: 12 KB (within ≤15 KB target)
+- `dist/crafts.css`: 44 KB uncompressed (estimated ~20-25 KB gzipped, within ≤25 KB target)
+- Build process: ✅ Successful, no errors
+- Linting: ✅ No errors detected
+
+### Detailed Implementation Plan
+
+#### Phase 1: Layout Polish (In Progress)
+- ✅ Stack/cluster utilities added
+- ⏳ Verify grid API consistency (`.crafts-col` + `.crafts-col-md-*` combinations)
+- ⏳ Test with `examples/grid-test.html` and `examples/container-test.html`
+
+#### Phase 2: Navigation Scaffolding (Planned)
+- Update `examples/components.html` to demonstrate:
+  - `.crafts-topbar` usage
+  - `.crafts-header` patterns
+  - `.crafts-main-nav` implementation
+  - Sidebar layout examples
+- Ensure graceful degradation below 768px breakpoint
+
+#### Phase 3: JS-free Interactive Components (Planned)
+- Implement in `src/components/_components.css` (or dedicated modules):
+  - **Dropdown**: Using `[data-state]` attributes + `:checked` pseudo-class
+  - **Tabs**: CSS-only tab switching with `:target` or `:checked`
+  - **Accordion**: Expandable sections with CSS
+  - **Modal**: Overlay patterns with `:target` or `[data-state]`
+  - **Tooltips**: CSS-only tooltip system
+- Add accessibility helpers (ARIA attributes, focus management notes)
+- Showcase in `examples/components.html` with progressive-enhancement documentation
+
+#### Phase 4: Theme System Overhaul (Planned)
+- **CSS Consolidation**: Merge `_theme-toggle.css` + `_theme-switcher.css` into unified API
+- **JavaScript Controller**: Build `src/components/crafts-theme.js` (ES module) with:
+  - `localStorage.craftsTheme` persistence (light/dark/auto)
+  - `prefers-color-scheme` fallback
+  - `data-theme` attribute management on `document.documentElement`
+  - `crafts-theme-change` event dispatch
+  - ARIA synchronization for screen readers
+- **Documentation**: Usage snippets in `examples/basic.html` and `docs/`
+
+#### Phase 5: Utility & Theme Extensions (Planned)
+- **`src/utilities/_utils.css`**:
+  - Spacing shorthands: `.u-stack-*`, `.u-inline-gap-*`, `.u-pad-*`
+  - Typography: `.u-text-balance`, `.u-clamp-*`
+  - Visibility: `.u-only-desktop`, `.u-only-mobile`, etc.
+  - Color helpers tied to tokens (not hard-coded)
+  - Experimental features gated behind `[data-crafts-complexity="rich"]`
+- **`src/utilities/_themes.css`**:
+  - Optional palettes: `data-theme="slate" | "sand" | "midnight"`
+  - Glassmorphism tokens: `--crafts-surface-backdrop`, `--crafts-border-gradient`
+  - Guarded behind `.crafts-theme-glass` class
+- **Build Integration**: Ensure proper import order in `build.js`
+
+#### Phase 6: Documentation & Examples (Planned)
+- **Docs Structure** (`/docs`):
+  - `index.md`: Landing page with value prop, installation, CDN snippet
+  - `getting-started.md`: Quick start guide
+  - `layout.md`: Container, grid, stack/cluster documentation
+  - `components.md`: All component patterns with code examples
+  - `themes.md`: Theme system usage
+  - `interactions.md`: JS-free components + optional JS helpers
+  - `performance.md`: Bundle sizes, optimization notes
+- **Examples Refresh** (`/examples`):
+  - `basic.html`: Semantic defaults + theme toggle wiring
+  - `components.html`: All components with code snippets
+  - `advanced.html`: Sidebar layouts, dashboard patterns
+  - `themes.html`: Palette previews (once `_themes.css` ships)
+  - Update `grid-test.html` and `container-test.html` for regression testing
+
+### Technical Decisions
+
+#### 1. Stack/Cluster Utility Design
+- **Decision**: Use flexbox with gap property (modern, clean, accessible)
+- **Rationale**: 
+  - Gap property provides consistent spacing without margin collapse issues
+  - Flexbox ensures predictable behavior across browsers
+  - Aligns with modern CSS best practices
+  - Simpler than grid for these specific use cases
+
+#### 2. Token Reference Standardization
+- **Decision**: Always use fully-qualified token names (e.g., `--crafts-line-height-normal`)
+- **Rationale**: 
+  - Prevents undefined reference errors
+  - Makes token system more discoverable
+  - Easier to audit and maintain
+
+#### 3. Build Process
+- **Decision**: Keep `build.js` as simple concatenation (no preprocessing)
+- **Rationale**:
+  - Zero build-step requirement aligns with framework philosophy
+  - Easier for users to understand and modify
+  - Faster development iteration
+  - Can add minification as optional step later
+
+### Lessons Learned
+
+1. **Audit Before Building**: Comprehensive source audit revealed issues that would have caused runtime errors (undefined tokens)
+2. **Documentation as You Go**: Updating `CRAFTS-framework-overview.md` during planning helps maintain context and prevents knowledge loss
+3. **Incremental Implementation**: Fixing small issues (token reference) before adding features (stack/cluster) ensures stable foundation
+4. **Competitive Analysis Value**: Synthesizing framework comparisons into guardrails provides clear decision criteria for future work
+
+### Next Session Priorities
+
+1. **Complete Layout Polish**: Verify grid API, test examples
+2. **Start JS-free Components**: Begin with simplest pattern (tooltips or accordion)
+3. **Theme Controller**: Build `crafts-theme.js` to enable theme persistence
+4. **Documentation Foundation**: Create `docs/` structure with at least `index.md` and `getting-started.md`
+
+### References
+
+- **Primary Planning Document**: `agents/CRAFTS-framework-overview.md`
+- **Build Script**: `build.js`
+- **Example Files**: `examples/basic.html`, `examples/components.html`, `examples/grid-test.html`, `examples/container-test.html`
+- **Source Files**: `src/core/`, `src/layout/`, `src/components/`, `src/utilities/`
+
+---
+
+*Last Updated: November 2025*
+*Planning Session: Claude AI Assistant*
