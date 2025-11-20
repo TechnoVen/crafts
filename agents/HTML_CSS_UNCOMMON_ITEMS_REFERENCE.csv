@@ -1,0 +1,10 @@
+Category,Missing/Undetailed Item,CRAFTS Integration Point,Rationale for Inclusion
+CSS Properties,color-mix() function,src/core/_variables.css,"Crucial for generating dynamic color variants (e.g., hover states) and consistent status colors using our HSL tokens, adhering to the DRY Principle."
+CSS Properties,text-wrap: balance,src/utilities/_utils.css,"Modern CSS property to optimize headline readability, directly supporting the Typographic (T) principle of CRAFTS."
+CSS Properties,aspect-ratio,src/layout/_layout.css,"Essential for responsive media, cards, and containers to maintain consistent proportions (e.g., 16/9, 1/1), supporting the Responsive (R) principle."
+CSS Properties,Subgrid,src/layout/_grid.css,"Key for advanced, nested grid layouts where the inner grid should inherit column tracks from the parent, improving Flexible (F) layouts."
+CSS Selectors,Relational (:has),src/components/*,"Allows styling a parent based on its children (e.g., a card with an image inside), simplifying complex component CSS and supporting Clean (C) code."
+CSS Selectors,:focus-visible,src/core/_reset.css / _semantic.css,"Critical for accessibility; only shows the focus outline when necessary (keyboard navigation), fulfilling the Accessible (A) principle."
+HTML Elements,<output>,src/components/_forms.css,"Used for showing results of calculations in a form, supporting the Semantic (S) principle."
+HTML Elements,<dialog>,src/components/_components.css,"Essential for modern, accessible modals/dialog boxes, directly supporting the Accessible (A) principle and the JS-Free Interactive Set."
+HTML Elements,<slot> & <template>,Documentation/Future Scope,"Required for advanced users building Web Components, ensuring Scalable (S) use and future-proofing the framework."

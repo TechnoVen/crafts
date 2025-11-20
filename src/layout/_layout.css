@@ -129,6 +129,14 @@
 .crafts-stack {
   display: flex;
   flex-direction: column;
+}
+
+.crafts-stack > * {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.crafts-stack-md {
   gap: var(--crafts-space-md);
 }
 
@@ -138,10 +146,6 @@
 
 .crafts-stack-sm {
   gap: var(--crafts-space-sm);
-}
-
-.crafts-stack-md {
-  gap: var(--crafts-space-md);
 }
 
 .crafts-stack-lg {
@@ -189,44 +193,33 @@
 
 /* Cluster alignment variants */
 .crafts-cluster-start {
-  align-items: flex-start;
-}
-
-.crafts-cluster-center {
-  align-items: center;
-}
-
-.crafts-cluster-end {
-  align-items: flex-end;
-}
-
-.crafts-cluster-stretch {
-  align-items: stretch;
-}
-
-/* Cluster justification */
-.crafts-cluster-justify-start {
   justify-content: flex-start;
 }
 
-.crafts-cluster-justify-center {
+.crafts-cluster-center {
   justify-content: center;
 }
 
-.crafts-cluster-justify-end {
+.crafts-cluster-end {
   justify-content: flex-end;
 }
 
-.crafts-cluster-justify-between {
+.crafts-cluster-between {
   justify-content: space-between;
 }
 
+.crafts-cluster-around,
 .crafts-cluster-justify-around {
   justify-content: space-around;
 }
 
+.crafts-cluster-evenly,
 .crafts-cluster-justify-evenly {
   justify-content: space-evenly;
+}
+
+.crafts-cluster-stretch {
+  align-items: stretch;
 }
 
 /* Sidebar layout with container constraints */

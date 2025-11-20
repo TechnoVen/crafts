@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRAFTS CSS - Layout Primitives</title>
+  <link rel="stylesheet" href="../dist/crafts.css">
+  <style>
+    .test-border {
+      border: 1px dashed var(--crafts-primary, #8b5cf6);
+      padding: var(--crafts-space-md);
+      border-radius: var(--crafts-radius-md);
+    }
+    .demo-gap {
+      margin-top: var(--crafts-space-2xl);
+    }
+  </style>
+</head>
+<body class="crafts-page">
+  <section class="crafts-section">
+    <div class="crafts-container crafts-stack crafts-stack-lg">
+      <h1 class="text-3xl font-bold">Layout Primitives</h1>
+      <p class="text-secondary">Demonstrating the CRAFTS Stack and Cluster utilities.</p>
+    </div>
+  </section>
+
+  <section class="crafts-section">
+    <div class="crafts-container crafts-stack crafts-stack-lg">
+      <h2 class="text-2xl font-bold">Stack Test</h2>
+      <div class="crafts-stack crafts-stack-lg test-border">
+        <p>Item 1: Always a large gap below me.</p>
+        <button class="crafts-btn">Button 2</button>
+        <div class="crafts-card">Card 3</div>
+      </div>
+
+      <h2 class="text-2xl font-bold demo-gap">Cluster Test (Center)</h2>
+      <div class="crafts-cluster crafts-cluster-center crafts-cluster-lg test-border">
+        <button class="crafts-btn">Primary</button>
+        <button class="crafts-btn crafts-btn-secondary">Secondary</button>
+        <span>Inline Text</span>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

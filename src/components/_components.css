@@ -1,0 +1,91 @@
+/*
+ * CRAFTS JS-free interactive patterns
+ * Dropdowns and tabs powered by :focus-within / :target / :checked
+ */
+
+/* Dropdown (CSS-only) */
+.crafts-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.crafts-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--crafts-space-xs);
+}
+
+.crafts-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: var(--crafts-bg-primary);
+  border: 1px solid var(--crafts-border-color);
+  border-radius: var(--crafts-radius-md);
+  box-shadow: var(--crafts-shadow-lg);
+  padding: var(--crafts-space-sm) 0;
+  margin-top: var(--crafts-space-xs);
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 10;
+}
+
+.crafts-dropdown:focus-within .crafts-dropdown-menu,
+.crafts-dropdown:hover .crafts-dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.crafts-dropdown-item {
+  display: block;
+  padding: var(--crafts-space-sm) var(--crafts-space-md);
+  color: var(--crafts-text-primary);
+  text-decoration: none;
+}
+
+.crafts-dropdown-item:hover {
+  background: var(--crafts-bg-secondary);
+}
+
+/* Tabs (CSS-only via radio) */
+.crafts-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--crafts-space-sm);
+}
+
+.crafts-tab-list {
+  display: inline-flex;
+  gap: var(--crafts-space-sm);
+  flex-wrap: wrap;
+}
+
+.crafts-tab-button {
+  padding: var(--crafts-space-sm) var(--crafts-space-md);
+  border: 1px solid var(--crafts-border-color);
+  border-radius: var(--crafts-radius-md);
+  background: var(--crafts-bg-secondary);
+  cursor: pointer;
+}
+
+.crafts-tab-button[aria-selected="true"] {
+  background: var(--crafts-primary);
+  color: white;
+  box-shadow: var(--crafts-shadow-sm);
+}
+
+.crafts-tab-panel {
+  display: none;
+  padding: var(--crafts-space-md);
+  border: 1px solid var(--crafts-border-color);
+  border-radius: var(--crafts-radius-md);
+  background: var(--crafts-bg-primary);
+}
+
+.crafts-tab-panel[aria-hidden="false"] {
+  display: block;
+}
