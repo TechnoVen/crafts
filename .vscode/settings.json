@@ -6,5 +6,6 @@
     "files.associations": 
     {
     "*.css": "css"
-    }
+    },
+    "chatgpt.commentCodeLensEnabled": true
 }

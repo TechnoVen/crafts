@@ -27,7 +27,7 @@
 }
 
 /* The Track */
-.crafts-theme-toggle-track {
+.crafts-toggle-track {
   position: absolute;
   top: 0;
   left: 0;
@@ -39,9 +39,9 @@
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* The Knob */
-.crafts-theme-toggle-knob {
-  position: absolute;
+/* The Knob/Thumb */
+.crafts-toggle-thumb {
+  position: relative;
   height: 24px; /* Sized to fit inside the 32px track */
   width: 24px;
   left: 4px;
@@ -89,7 +89,7 @@
 /* === ACTIVE STATES === */
 
 /* Checked Track (Dark Mode Background) */
-.crafts-theme-toggle input:checked + .crafts-theme-toggle-track {
+.crafts-theme-toggle input:checked + .crafts-toggle-track {
   background-color: var(--crafts-primary);
   border-color: var(--crafts-primary);
 }
@@ -97,15 +97,15 @@
 /* Checked Knob Movement */
 .crafts-theme-toggle
   input:checked
-  + .crafts-theme-toggle-track
-  .crafts-theme-toggle-knob {
+  + .crafts-toggle-track
+  .crafts-toggle-thumb {
   transform: translate(28px, -50%);
 }
 
 /* Icon Animation */
 .crafts-theme-toggle
   input:checked
-  + .crafts-theme-toggle-track
+  + .crafts-toggle-track
   .theme-icon-sun {
   opacity: 0;
   transform: rotate(-90deg) scale(0);
@@ -113,14 +113,14 @@
 
 .crafts-theme-toggle
   input:checked
-  + .crafts-theme-toggle-track
+  + .crafts-toggle-track
   .theme-icon-moon {
   opacity: 1;
   transform: rotate(0deg) scale(1);
 }
 
 /* Focus Focus */
-.crafts-theme-toggle input:focus + .crafts-theme-toggle-track {
+.crafts-theme-toggle input:focus + .crafts-toggle-track {
   box-shadow: 0 0 0 3px
     color-mix(in srgb, var(--crafts-primary) 30%, transparent);
 }

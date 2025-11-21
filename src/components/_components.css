@@ -23,13 +23,15 @@
   border: 1px solid var(--crafts-border-color);
   border-radius: var(--crafts-radius-md);
   box-shadow: var(--crafts-shadow-lg);
-  padding: var(--crafts-space-xs);
+  padding: 0;
   margin-top: var(--crafts-space-xs);
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
   transform: translateY(5px);
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease, max-height 0.3s ease, padding 0.3s ease;
 }
 
 .crafts-dropdown:hover .crafts-dropdown-menu,
@@ -37,6 +39,8 @@
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  max-height: 500px;
+  padding: var(--crafts-space-xs);
 }
 
 .crafts-dropdown-item {
@@ -128,14 +132,9 @@
   padding: var(--crafts-space-md);
   font-weight: var(--crafts-font-weight-medium);
   cursor: pointer;
-  list-style: none;
+  list-style: none; /* remove native marker */
   position: relative;
   color: var(--crafts-text-primary);
-}
-
-.crafts-accordion-summary::marker,
-.crafts-accordion-summary::-webkit-details-marker {
-  display: none;
 }
 
 .crafts-accordion-summary::after {
