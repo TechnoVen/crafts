@@ -14,6 +14,12 @@
 10. [DeepSeek Session Notes](#deepseek-session-notes)
 11. [Next Actions](#next-actions)
 
+## Recent Enhancements
+
+- JS-free dropdown and accordion components added to `_components.css` with `:focus-within` support for keyboard users.
+- Stack and cluster utilities demonstrated via `examples/layout-primitives.html` for consistent vertical/horizontal spacing.
+- Interactive demo page `examples/interactive-test.html` added to validate CSS-only interactions.
+
 ## Idea & Intent
 
 - **CRAFTS (Clean, Responsive, Accessible, Flexible, Typographic, Semantic)** is positioned as a bridge between Pico’s semantic defaults, Halfmoon’s layout primitives, and Tailwind’s utility vocabulary.

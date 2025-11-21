@@ -1,43 +1,42 @@
 /*
  * CRAFTS JS-free interactive patterns
- * Dropdowns and tabs powered by :focus-within / :target / :checked
+ * Dropdowns, tabs, accordion powered by :focus-within / :target / :checked
  */
 
 /* Dropdown (CSS-only) */
 .crafts-dropdown {
   position: relative;
   display: inline-block;
+  vertical-align: top;
 }
 
 .crafts-dropdown-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--crafts-space-xs);
+  /* inherits button styling */
 }
 
 .crafts-dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 200px;
+  min-width: 150px;
   background: var(--crafts-bg-primary);
   border: 1px solid var(--crafts-border-color);
   border-radius: var(--crafts-radius-md);
   box-shadow: var(--crafts-shadow-lg);
-  padding: var(--crafts-space-sm) 0;
+  padding: var(--crafts-space-xs);
   margin-top: var(--crafts-space-xs);
+  z-index: 1000;
   opacity: 0;
-  transform: translateY(-4px);
-  pointer-events: none;
-  transition: opacity 0.18s ease, transform 0.18s ease;
-  z-index: 10;
+  visibility: hidden;
+  transform: translateY(5px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
 }
 
-.crafts-dropdown:focus-within .crafts-dropdown-menu,
-.crafts-dropdown:hover .crafts-dropdown-menu {
+.crafts-dropdown:hover .crafts-dropdown-menu,
+.crafts-dropdown:focus-within .crafts-dropdown-menu {
   opacity: 1;
+  visibility: visible;
   transform: translateY(0);
-  pointer-events: auto;
 }
 
 .crafts-dropdown-item {
@@ -45,13 +44,31 @@
   padding: var(--crafts-space-sm) var(--crafts-space-md);
   color: var(--crafts-text-primary);
   text-decoration: none;
+  font-size: var(--crafts-text-base);
+  border-radius: var(--crafts-radius-sm);
+  transition: background-color 0.1s ease, color 0.1s ease;
 }
 
-.crafts-dropdown-item:hover {
+.crafts-dropdown-item:hover,
+.crafts-dropdown-item:focus {
   background: var(--crafts-bg-secondary);
+  color: var(--crafts-primary);
+  outline: none;
 }
 
-/* Tabs (CSS-only via radio) */
+.crafts-dropdown-icon-open {
+  display: none;
+}
+.crafts-dropdown:hover .crafts-dropdown-icon-closed,
+.crafts-dropdown:focus-within .crafts-dropdown-icon-closed {
+  display: none;
+}
+.crafts-dropdown:hover .crafts-dropdown-icon-open,
+.crafts-dropdown:focus-within .crafts-dropdown-icon-open {
+  display: inline-block;
+}
+
+/* Tabs (CSS-only via aria state) */
 .crafts-tabs {
   display: flex;
   flex-direction: column;
@@ -88,4 +105,61 @@
 
 .crafts-tab-panel[aria-hidden="false"] {
   display: block;
+}
+
+/*
+ * CRAFTS JS-Free Accordion Component
+ * Uses native <details> and <summary> for accessibility and zero JS
+ */
+.crafts-accordion-item {
+  border: 1px solid var(--crafts-border-color);
+  border-radius: var(--crafts-radius-md);
+  margin-bottom: var(--crafts-space-sm);
+  transition: all 0.2s ease;
+}
+
+.crafts-accordion-item[open] {
+  background: var(--crafts-bg-secondary);
+  border-color: var(--crafts-primary);
+}
+
+.crafts-accordion-summary {
+  display: block;
+  padding: var(--crafts-space-md);
+  font-weight: var(--crafts-font-weight-medium);
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  color: var(--crafts-text-primary);
+}
+
+.crafts-accordion-summary::marker,
+.crafts-accordion-summary::-webkit-details-marker {
+  display: none;
+}
+
+.crafts-accordion-summary::after {
+  content: '+';
+  position: absolute;
+  right: var(--crafts-space-md);
+  font-weight: var(--crafts-font-weight-bold);
+  transition: transform 0.2s ease;
+  color: var(--crafts-primary);
+}
+
+.crafts-accordion-item[open] .crafts-accordion-summary::after {
+  content: '−';
+  transform: rotate(180deg);
+}
+
+.crafts-accordion-content {
+  padding: var(--crafts-space-md);
+  padding-top: 0;
+  border-top: 1px solid var(--crafts-border-color);
+  color: var(--crafts-text-secondary);
+}
+
+.crafts-accordion-item:first-child:not([open]) {
+  border-top-left-radius: var(--crafts-radius-md);
+  border-top-right-radius: var(--crafts-radius-md);
 }

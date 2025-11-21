@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRAFTS CSS - JS-Free Interactive Demo</title>
+  <link rel="stylesheet" href="../dist/crafts.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <style>
+    .test-border {
+      border: 1px dashed var(--crafts-primary, #8b5cf6);
+      padding: var(--crafts-space-md);
+      border-radius: var(--crafts-radius-md);
+    }
+  </style>
+</head>
+<body class="crafts-page">
+  <section class="crafts-section">
+    <div class="crafts-container crafts-stack crafts-stack-lg">
+      <h1 class="text-3xl font-bold">JS-Free Interactions</h1>
+      <p class="text-secondary">Dropdown and Accordion powered by CSS only.</p>
+
+      <div class="crafts-stack crafts-stack-md test-border">
+        <h2 class="text-2xl font-bold">Dropdown Demo</h2>
+        <div class="crafts-dropdown">
+          <button class="crafts-btn crafts-dropdown-toggle">
+            Actions
+            <i data-lucide="chevron-down" class="crafts-icon crafts-dropdown-icon-closed"></i>
+            <i data-lucide="chevron-up" class="crafts-icon crafts-dropdown-icon-open"></i>
+          </button>
+          <div class="crafts-dropdown-menu">
+            <a href="#" class="crafts-dropdown-item">View Profile</a>
+            <a href="#" class="crafts-dropdown-item">Settings</a>
+            <a href="#" class="crafts-dropdown-item">Logout</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="crafts-stack crafts-stack-md test-border">
+        <h2 class="text-2xl font-bold">Accordion Demo</h2>
+        <div class="crafts-stack crafts-stack-sm">
+          <details class="crafts-accordion-item">
+            <summary class="crafts-accordion-summary">What is the CRAFTS philosophy?</summary>
+            <div class="crafts-accordion-content">
+              It stands for Clean, Responsive, Accessible, Flexible, Typographic, and Semantic.
+            </div>
+          </details>
+          <details class="crafts-accordion-item">
+            <summary class="crafts-accordion-summary">Is this completely CSS-only?</summary>
+            <div class="crafts-accordion-content">
+              Yes—the open/close behavior uses native &lt;details&gt; and &lt;summary&gt; elements.
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
